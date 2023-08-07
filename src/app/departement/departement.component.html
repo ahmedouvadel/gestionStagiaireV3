@@ -1,0 +1,93 @@
+<body>
+  <div class="card">
+    <div class="card-header">Rechercher des Departement</div>
+
+    <div class="card-body">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="taper un mot cle"
+          aria-label="Recipient's username"
+          aria-describedby="basic-addon2"
+        />
+      </div>
+      <select
+        class="form-select"
+        aria-label="Default select example"
+      >
+        <option value="" disabled selected hidden>Rechercher Les Service</option>
+        <option value="DTI">DTI</option>
+        <option value="DHCP">DHPC</option>
+        <option value="DAL">DAL</option>
+        <option value="D700">D700</option>
+        <option value="D600">D600</option>
+        <option value="D500">D500</option>
+      </select>
+
+      <span
+
+          class="link-primary"
+
+
+
+        >
+          <button
+          class="add"
+          (click)="event()"
+          style="background-color: rgba(146, 195, 238, 0.597);  border-radius: 0.5rem;"
+
+          >Nouveau Departement</button></span
+        >
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">List des Departement</div>
+
+    <div class="card-body">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">Nom de la Departement</th>
+            <th scope="col">Direction</th>
+            <th scope="col" ></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+
+          >
+            <th></th>
+            <td></td>
+            <td></td>
+            <td class="btns" >
+              <a>
+                <mat-icon
+                  aria-hidden="false"
+                  aria-label="Example home icon"
+                  fontIcon="update"
+                ></mat-icon>
+              </a>
+
+              <a >
+                <mat-icon
+                  aria-hidden="false"
+                  class="delete"
+                  aria-label="Example home icon"
+                  fontIcon="delete"
+                ></mat-icon>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <div  class="alert alert-secondary" role="alert">
+    Dosen't exist any stagiaire pour l'instant
+  </div>
+</body>

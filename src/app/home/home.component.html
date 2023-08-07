@@ -1,0 +1,85 @@
+<body>
+  <div class="card">
+    <div class="card-header">Rechercher des stagiaires</div>
+
+    <div class="card-body">
+      <div class="form-group">
+        <input
+          type="email"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          placeholder="taper un mots-clés"
+        />
+      </div>
+
+      <span
+
+          class="link-primary"
+          (click)="event()"
+
+
+        >
+          <button
+          class="add"
+          (click)="event()"
+          style="background-color: rgba(146, 195, 238, 0.597);  border-radius: 0.5rem;"
+
+          >Nouveau Utilisateur</button></span
+        >
+    </div>
+  </div>
+
+  <div class="card" >
+    <div class="card-header">List des stagiaires</div>
+
+    <div class="card-body">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">nom</th>
+            <th scope="col">prenom</th>
+            <th scope="col">Departement</th>
+            <th scope="col">N°Telephone</th>
+            <th scope="col" >N°Badge</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+          >
+            <td>01</td>
+            <td>Ahmedou</td>
+            <td>Vadel</td>
+            <td>DTI</td>
+            <td>44223507</td>
+            <td>1281</td>
+            <td class="btns" >
+              <a >
+                <mat-icon
+                  aria-hidden="false"
+                  aria-label="Example home icon"
+
+                ></mat-icon>
+              </a>
+
+              <a >
+                <mat-icon
+                  aria-hidden="false"
+                  class="delete"
+                  aria-label="Example home icon"
+
+                ></mat-icon>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <div  class="alert alert-secondary" role="alert">
+    Dosen't exist any stagiaire pour l'instant
+  </div>
+</body>
