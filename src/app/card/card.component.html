@@ -36,11 +36,8 @@
     <div class="card-body">
       <p>
         <span
-
-
           class="btn btn-primary"
-
-
+          (click)="event4()"
         >
           Voir toutes les Services</span
         >
@@ -74,7 +71,30 @@
 
   <div class="card" style="width: 33rem">
     <h5 class="card-title">
-      users<span class="badge rounded-pill text-bg-primary ms-2"></span>
+      Directions <span class="badge rounded-pill text-bg-primary ms-2"></span>
+    </h5>
+    <img
+      class="card-img-top"
+      src="../../assets/pngegg.png"    alt="Card image cap"
+    />
+    <div class="card-body">
+      <p>
+        <span
+
+
+          class="btn btn-primary"
+          (click)="event3()"
+
+        >
+          Voir toutes les Direction </span
+        >
+      </p>
+    </div>
+  </div>
+
+  <div class="card" style="width: 33rem">
+    <h5 class="card-title">
+      Utilisateurs<span class="badge rounded-pill text-bg-primary ms-2"></span>
     </h5>
     <img
       class="card-img-top"
@@ -84,9 +104,8 @@
     <div class="card-body">
       <p>
         <span
-
-
           class="btn btn-primary"
+          (click)="event5()"
 
         >
           voir toutes les Utlisateurs</span

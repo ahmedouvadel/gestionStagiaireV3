@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   ) {}
 
   event() {
-    this.router.navigate([''])
+    this.router.navigate(['admin'])
   }
 
   ngOnInit(): void {

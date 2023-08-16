@@ -7,15 +7,28 @@ import { Route, Router } from '@angular/router';
 })
 export class CardComponent implements OnInit {
 
-  event1() {
-    this.router.navigate(['home']);
-  }
+
   constructor(
     private router: Router,
   ) {}
 
+  event1() {
+    this.router.navigate(['home']);
+  }
+
   event2(){
     this.router.navigate(['departement'])
+  }
+
+  event3(){
+    this.router.navigate(['direction'])
+  }
+
+  event4(){
+    this.router.navigate(['service'])
+  }
+  event5(){
+    this.router.navigate(['utilisateurs'])
   }
 
   ngOnInit(): void {
