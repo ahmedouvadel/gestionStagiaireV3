@@ -13,7 +13,7 @@ export class CardComponent implements OnInit {
   ) {}
 
   event1() {
-    this.router.navigate(['home']);
+    this.router.navigate(['stagiaire']);
   }
 
   event2(){

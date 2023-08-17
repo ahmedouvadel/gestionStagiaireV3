@@ -13,7 +13,7 @@ constructor(
 ) {}
 
 event(){
-  this.router.navigate([''])
+  this.router.navigate(['departement/add'])
 }
 
 ngOnInit(): void {
