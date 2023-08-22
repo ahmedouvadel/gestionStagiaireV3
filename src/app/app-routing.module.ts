@@ -15,6 +15,8 @@ import { ServiceComponent } from './service/service.component';
 import { AddDirectionComponent } from './add-direction/add-direction.component';
 import { AddServiceComponent } from './add-service/add-service.component';
 import { AddUtilisateurComponent } from './add-utilisateur/add-utilisateur.component';
+import { StatusEchecComponent } from './status-echec/status-echec.component';
+import { DetailsComponent } from './details/details.component';
 
 
 const routes: Routes = [
@@ -35,8 +37,8 @@ const routes: Routes = [
   {path:'direction/add', component: AddDirectionComponent },
   {path:'service/add', component: AddServiceComponent },
   {path:'Utilisateur/add', component: AddUtilisateurComponent},
-
-
+  {path:'Status', component: StatusEchecComponent},
+  
 ];
 
 @NgModule({

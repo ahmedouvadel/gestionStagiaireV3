@@ -1,0 +1,63 @@
+<head>
+  <!-- ... autres balises head ... -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-xK0s0n+6qoB+7Vx3z+MY6z2M7+QK0n2tc4xq4+2Y9yK3z9T2+h7egeIUUWz+2X1J" crossorigin="anonymous">
+</head>
+<div class="container">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <!-- Onglet "Détails" -->
+      <a class="nav-link" [ngClass]="{ 'active': currentTab === 'details' }" (click)="changeTab('details')" routerLink="/details">Détails</a>
+    </li>
+    <li class="nav-item">
+      <!-- Onglet "Raison" -->
+      <a class="nav-link" [ngClass]="{ 'active': currentTab === 'reason' }" (click)="changeTab('reason')">Raison</a>
+    </li>
+    <li class="nav-item">
+      <!-- Onglet "Actions" -->
+      <a class="nav-link" [ngClass]="{ 'active': currentTab === 'actions' }" (click)="changeTab('actions')">Actions</a>
+    </li>
+  </ul>
+
+  <div class="tab-content">
+    <div class="tab-pane" [ngClass]="{ 'active': currentTab === 'details' }">
+      <!-- Contenu de l'onglet "Détails" -->
+      <div>
+        <h3>Détails du statut</h3>
+        <table id="stage-table">
+          <thead>
+            <tr>
+              <th>Nom du stagiaire</th>
+              <th>Période de stage</th>
+              <th>État</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Stages existants -->
+            <tr class="completed">
+              <td>Ahmed Vadel</td>
+              <td>Janvier 2022 - Mars 2022</td>
+              <td><i class="fas fa-check"></i> Terminé</td>
+              <td><i class="fas fa-trash-alt"></i> <mat-icon>delete</mat-icon><mat-icon>mail</mat-icon><mat-icon>voir</mat-icon></td>
+            </tr>
+            <tr class="ongoing">
+              <td>Ahmadou</td>
+              <td>Avril 2022 - Juin 2022</td>
+              <td><i class="fas fa-spinner"></i> En cours</td>
+              <td><i class="fas fa-trash-alt"></i> <mat-icon>delete</mat-icon><mat-icon>mail</mat-icon><mat-icon>voir</mat-icon></td>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="tab-pane" [ngClass]="{ 'active': currentTab === 'reason' }">
+      <!-- Contenu de l'onglet "Raison" -->
+      <h3>Raison de l'échec</h3>
+      <p>...</p>
+    </div>
+    <div class="tab-pane" [ngClass]="{ 'active': currentTab === 'actions' }">
+      <!-- Contenu de l'onglet "Actions" -->
+      <h3>Actions à entreprendre</h3>
+      <p>...</p>
+    </div>
+  </div>
+</div>

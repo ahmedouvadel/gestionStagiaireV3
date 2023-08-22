@@ -30,6 +30,9 @@ export class CardComponent implements OnInit {
   event5(){
     this.router.navigate(['utilisateurs'])
   }
+  event6(){
+    this.router.navigate(['Status'])
+  }
 
   ngOnInit(): void {
 

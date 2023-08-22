@@ -34,6 +34,8 @@ import { ServiceComponent } from './service/service.component';
 import { AddServiceComponent } from './add-service/add-service.component';
 import { AddDirectionComponent } from './add-direction/add-direction.component';
 import { AddUtilisateurComponent } from './add-utilisateur/add-utilisateur.component';
+import { StatusEchecComponent } from './status-echec/status-echec.component';
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,9 @@ import { AddUtilisateurComponent } from './add-utilisateur/add-utilisateur.compo
     ServiceComponent,
     AddServiceComponent,
     AddDirectionComponent,
-    AddUtilisateurComponent
+    AddUtilisateurComponent,
+    StatusEchecComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserAnimationsModule,

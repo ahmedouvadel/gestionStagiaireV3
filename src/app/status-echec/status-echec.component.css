@@ -1,0 +1,95 @@
+ /* Style pour les onglets */
+ .nav-tabs {
+  background-color: #f8f9fa;
+  padding: 10px;
+}
+
+.nav-item {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.nav-link {
+  color: #333;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.nav-link.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* Style pour le contenu des onglets */
+.tab-content {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.tab-pane {
+  display: none;
+}
+
+.tab-pane.active {
+  display: block;
+}
+
+/* Style pour les titres des onglets */
+h3 {
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+/* Style pour les paragraphes du contenu des onglets */
+p {
+  color: #555;
+}
+    /* Style pour la liste des stages */
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+      padding: 10px;
+      background-color: #f8f9fa;
+      border-radius: 5px;
+    }
+
+    .completed {
+      background-color: #c3e6cb;
+    }
+
+    .ongoing {
+      background-color: #ffc107;
+    }
+
+    .stage-name {
+      font-weight: bold;
+    }
+
+    .stage-period {
+      color: #888;
+    }
+    /* Style pour le tableau des stages */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .completed i {
+      color: green;
+    }
+
+    .ongoing i {
+      color: orange;
+    }
