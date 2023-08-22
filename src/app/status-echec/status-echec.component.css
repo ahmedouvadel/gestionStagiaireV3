@@ -17,8 +17,9 @@
 }
 
 .nav-link.active {
-  background-color: #007bff;
-  color: #fff;
+  background-color:rgba(146, 195, 238, 0.597);
+  color: #0a0303;
+  border-radius: 0.5rem;
 }
 
 /* Style pour le contenu des onglets */
@@ -38,8 +39,10 @@
 
 /* Style pour les titres des onglets */
 h3 {
-  color: #007bff;
+  color: #011099cb;
   margin-bottom: 10px;
+  text-align: center;
+  text-decoration: wavy;
 }
 
 /* Style pour les paragraphes du contenu des onglets */
@@ -60,11 +63,16 @@ p {
     }
 
     .completed {
-      background-color: #c3e6cb;
+      background-color: #eb4520c4;
     }
 
+    .btn {
+  height: 40px;
+  margin-left: 20px;
+}
+
     .ongoing {
-      background-color: #ffc107;
+      background-color: #4aad18ab;
     }
 
     .stage-name {
