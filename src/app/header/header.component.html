@@ -1,4 +1,7 @@
+
+<!-- Sidebar Component -->
 <mat-toolbar>
+  <!-- toggleSidbar button -->
   <mat-toolbar-row class="justify-content-between">
     <button mat-icon-button (click)="toggleSidebar()">
       <mat-icon>menu</mat-icon>
@@ -6,6 +9,8 @@
     <div class="row mr-2 ml-auto">
       <ul class="row m-0 align-items-center">
         <li>
+
+          <!-- Login  button -->
           <button
             mat-button
             [matMenuTriggerFor]="menu"
@@ -13,12 +18,14 @@
           >
             <img src="../../assets/userprofile.png" alt="" class="user-image mr-1 p-2" />
 
-            User Name
+            Nom d'Utilisateur
             <mat-icon class="user-image-icon ml-1"
               >keyboard_arrow_down</mat-icon
             >
           </button>
           <mat-menu #menu="matMenu">
+
+            <!-- LogOut button -->
             <button mat-menu-item
             (click)="event()">
               <mat-icon>exit_to_app</mat-icon>

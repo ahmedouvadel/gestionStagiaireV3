@@ -11,6 +11,7 @@ export class ServiceComponent implements OnInit {
   constructor(
     private router : Router,
   ) {}
+  /** event pour ajoute un service */
 
   event(){
     this.router.navigate(['service/add'])

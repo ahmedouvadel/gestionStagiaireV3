@@ -1,1 +1,54 @@
-<p>add-utilisateur works!</p>
+<div class="card">
+  <div class="card-header">Add Service</div>
+
+  <div class="card-body">
+    <form>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Nom d'utilisateur</label>
+        <input
+          type="text"
+          class="form-control"
+          id="exampleFormControlInput1"
+          placeholder=" Nom d'utilisateur"
+
+
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Mot de passe</label>
+        <input
+          type="password"
+          class="form-control"
+
+          placeholder=" Mot De Passe"
+          name="Motdepasse"
+
+        />
+      </div>
+
+      <div class="form-group">
+        <label for=""> Role</label>
+        <select
+          name="Roel"
+
+          class="form-select"
+          aria-label="Default select example"
+        >
+          <option value="" disabled selected hidden>
+            Role
+          </option>
+          <option value="AdminUser">AdminUser</option>
+          <option value="Supervisor">Supervisor</option>
+
+        </select>
+      </div>
+
+      <button  type="button" class="btn btn-light"
+      style="background-color: rgba(146, 195, 238, 0.597);  border-radius: 0.5rem;">
+        Enregistrer
+      </button>
+    </form>
+  </div>
+</div>
+

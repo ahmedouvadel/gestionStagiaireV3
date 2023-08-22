@@ -9,7 +9,7 @@ export class AppComponent implements OnInit{
   title = 'AdmiN Pane Leyout';
   sideBarOpen = true;
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   sideBarToggler(){
     this.sideBarOpen = !this.sideBarOpen;

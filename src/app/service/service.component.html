@@ -1,9 +1,11 @@
+
+<!-- Service Component -->
 <body>
   <div class="card">
-    <div class="card-header">Rechercher des Departement</div>
-
+    <div class="card-header">Rechercher des Service</div>
     <div class="card-body">
       <div class="input-group mb-3">
+        <!-- input recherche par ID -->
         <input
           type="text"
           class="form-control"
@@ -12,6 +14,8 @@
           aria-describedby="basic-addon2"
         />
       </div>
+
+      <!-- Selection de Service -->
       <select
         class="form-select"
         aria-label="Default select example"
@@ -26,12 +30,10 @@
       </select>
 
       <span
-
           class="link-primary"
-
-
-
         >
+
+        <!-- NvService  Button -->
           <button
           class="add"
           style="background-color: rgba(146, 195, 238, 0.597);  border-radius: 0.5rem;"
@@ -47,6 +49,8 @@
     <div class="card-body">
       <table class="table">
         <thead class="thead-dark">
+
+          <!-- Bar de Ramplir de Service -->
           <tr>
             <th scope="col">id</th>
             <th scope="col">Nom du Service</th>
@@ -55,13 +59,15 @@
           </tr>
         </thead>
         <tbody>
-          <tr
 
-          >
-            <th></th>
-            <td></td>
-            <td></td>
-            <td></td>
+         <!-- Bar de Liste de Service -->
+          <tr  >
+            <th class="btns" >1</th>
+            <td class="btns">Genie Logiciel</td>
+            <td class="btns">DSI</td>
+            <td class="btns"></td>
+
+        <!-- button Update et Drop de Service -->
             <td class="btns" >
               <a>
                 <mat-icon
@@ -87,6 +93,7 @@
 
   </div>
 
+   <!-- Cas Ou Any Service Exist  -->
   <div  class="alert alert-secondary" role="alert">
     Dosen't exist any Service pour l'instant
   </div>

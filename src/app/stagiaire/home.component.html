@@ -1,35 +1,37 @@
+
+<!-- Stagiaire Component-->
 <body>
   <div class="card">
     <div class="card-header">Rechercher des stagiaires</div>
 
     <div class="card-body">
       <div class="form-group">
+
+        <!-- input pour cherche d'un stagiaire -->
         <input
-          type="email"
+          type="text"
           class="form-control"
-          id="exampleInputEmail1"
-          aria-describedby="emailHelp"
+          id="exampleInputCle1"
+          aria-describedby=""
           placeholder="taper un mots-clés"
         />
       </div>
 
+   <!-- Section pour ajoute un un stagiaire -->
       <span
-
           class="link-primary"
           (click)="event()"
-
-
         >
           <button
           class="add"
           (click)="event()"
           style="background-color: rgba(146, 195, 238, 0.597);  border-radius: 0.5rem;"
 
-          >Nouveau Utilisateur</button></span
+          >Nouveau Stagiaire </button></span
         >
     </div>
   </div>
-
+  <!-- Section d'afficher un stagiaire-->
   <div class="card" >
     <div class="card-header">List des stagiaires</div>
 
@@ -54,6 +56,8 @@
             <td>DTI</td>
             <td>44223507</td>
             <td>1281</td>
+
+      <!-- icon Update et Drop -->
             <td class="btns" >
               <a >
                 <mat-icon
@@ -79,6 +83,7 @@
 
   </div>
 
+     <!-- Cas Ou Any Service Exist  -->
   <div  class="alert alert-secondary" role="alert">
     Dosen't exist any stagiaire pour l'instant
   </div>

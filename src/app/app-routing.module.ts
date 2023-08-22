@@ -14,6 +14,7 @@ import { DirectionComponent } from './direction/direction.component';
 import { ServiceComponent } from './service/service.component';
 import { AddDirectionComponent } from './add-direction/add-direction.component';
 import { AddServiceComponent } from './add-service/add-service.component';
+import { AddUtilisateurComponent } from './add-utilisateur/add-utilisateur.component';
 
 
 const routes: Routes = [
@@ -33,6 +34,7 @@ const routes: Routes = [
   {path:'service', component: ServiceComponent },
   {path:'direction/add', component: AddDirectionComponent },
   {path:'service/add', component: AddServiceComponent },
+  {path:'Utilisateur/add', component: AddUtilisateurComponent},
 
 
 ];

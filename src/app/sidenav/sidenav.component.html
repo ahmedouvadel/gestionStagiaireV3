@@ -1,23 +1,36 @@
 
-
+<!-- Sidebar Component -->
 <mat-nav-list>
+
+  <!-- Logo Sidebar -->
   <div class="logo py-4">
     <img src="../../assets/snim Logo (1).png" alt="Company Logo" />
   </div>
+
+  <!-- Section pour les Applications de sidenav -->
   <mat-divider></mat-divider>
   <h2 matSubheader class="mt-2">APPLICATIONS</h2>
 
+  <!-- Acceil Sidenav -->
   <a mat-list-item routerLinkActive="list-item-active" routerLink="/card">
     <mat-icon>stars</mat-icon> Accueil </a>
 
+  <!-- Stagiaires Sidebar -->
   <a mat-list-item routerLinkActive="list-item-active" routerLink="/stagiaire">
     <mat-icon>perm_identity</mat-icon> Stagiaires </a>
 
+  <!-- Departement Sidebar -->
     <a mat-list-item routerLinkActive="list-item-active" routerLink="/departement">
       <mat-icon>equalizer</mat-icon> Departements</a>
 
+  <!-- Utilisateur Sidebar -->
   <a mat-list-item routerLinkActive="list-item-active" routerLink="/utilisateurs">
     <mat-icon>supervisor_account</mat-icon> Utilisateurs
+  </a>
+
+  <!-- Utilisateur Sidebar -->
+  <a mat-list-item routerLinkActive="list-item-active" routerLink="">
+    <mat-icon>list</mat-icon> Status Echec
   </a>
 
 </mat-nav-list>
