@@ -32,6 +32,11 @@ export class HomeComponent implements OnInit {
 
   }
 
+  DeleteStagiaire(S: any) {
+    let index = this.Stagiaire.indexOf(S);
+    this.Stagiaire.splice(index,1);
+  }
+
 
 
 }

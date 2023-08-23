@@ -59,12 +59,16 @@
             <td>{{S.Badge}}</td>
 
       <!-- icon Update et Drop -->
-            <td class="btns" >
+            <td
+            class="btns"
+            (click)="DeleteStagiaire(S)"
+             >
               <a >
                 <mat-icon
                   aria-hidden="false"
+                  class="delete"
                   aria-label="Example home icon"
-
+                  fontIcon="delete"
                 ></mat-icon>
               </a>
 
