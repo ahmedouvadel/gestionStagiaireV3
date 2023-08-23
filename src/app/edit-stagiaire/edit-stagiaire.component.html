@@ -1,8 +1,13 @@
+<!-- Carte pour l'édition d'un stagiaire -->
 <div class="card">
+  <!-- En-tête de la carte -->
   <div class="card-header">editer stagiaire</div>
 
+  <!-- Corps de la carte -->
   <div class="card-body">
+    <!-- Formulaire pour l'édition du stagiaire -->
     <form>
+      <!-- Champ ID -->
       <div class="form-group">
         <label for="exampleFormControlInput1">id</label>
         <input
@@ -11,33 +16,32 @@
           id="exampleFormControlInput1"
           placeholder="le nom"
           name="id"
-    
         />
       </div>
 
+      <!-- Champ Nom -->
       <div class="form-group">
         <label for="exampleFormControlInput1">nom</label>
         <input
           type="text"
           class="form-control"
-
           placeholder="le Prenom"
           name="nom"
-
         />
       </div>
 
+      <!-- Champ Prénom -->
       <div class="form-group">
         <label for="exampleFormControlInput1">Prenom</label>
         <input
           type="text"
           class="form-control"
-
           placeholder="le nom"
           name="prenom"
-
         />
       </div>
+
+      <!-- Champ Filière -->
       <div class="form-group">
         <label for="">Filere</label>
         <input
@@ -45,17 +49,19 @@
           class="form-control"
           id="exampleFormControlInput1"
           placeholder="le filiere"
-
           name="filiere.id_Filiere"
         />
       </div>
+
+      <!-- Champ Image -->
       <div class="form-group">
         <label for="">Image</label>
         <input name="photo" class="form-control" type="file" id="myFile" />
       </div>
+
+      <!-- Bouton pour enregistrer les modifications -->
       <button
         routerLink="stagiaire"
-
         type="button"
         class="btn btn-light"
       >
@@ -64,4 +70,3 @@
     </form>
   </div>
 </div>
-

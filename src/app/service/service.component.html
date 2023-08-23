@@ -1,8 +1,12 @@
 <body>
+  <!-- Carte pour la recherche de services -->
   <div class="card">
+    <!-- En-tête de la carte -->
     <div class="card-header">Rechercher des Service</div>
 
+    <!-- Corps de la carte -->
     <div class="card-body">
+      <!-- Champ de recherche avec input-group -->
       <div class="input-group mb-3">
         <input
           type="text"
@@ -12,10 +16,9 @@
           aria-describedby="basic-addon2"
         />
       </div>
-      <select
-        class="form-select"
-        aria-label="Default select example"
-      >
+
+      <!-- Sélecteur pour filtrer les services -->
+      <select class="form-select" aria-label="Default select example">
         <option value="" disabled selected hidden>Rechercher Les Service</option>
         <option value="DTI">DTI</option>
         <option value="DHCP">DHPC</option>
@@ -25,45 +28,45 @@
         <option value="D500">D500</option>
       </select>
 
-      <span
-
-          class="link-primary"
-
-
-
-        >
-          <button
+      <!-- Bouton pour ajouter un nouveau service -->
+      <span class="link-primary">
+        <button
           class="add"
           (click)="event()"
           style="background-color: rgba(146, 195, 238, 0.597);  border-radius: 0.5rem;"
-
-          >Nouveau Service</button></span
         >
+          Nouveau Service
+        </button>
+      </span>
     </div>
   </div>
 
+  <!-- Carte pour la liste des services -->
   <div class="card">
+    <!-- En-tête de la carte -->
     <div class="card-header">List des Service</div>
 
+    <!-- Corps de la carte -->
     <div class="card-body">
+      <!-- Tableau pour afficher les services -->
       <table class="table">
         <thead class="thead-dark">
           <tr>
             <th scope="col">id</th>
             <th scope="col">Nom de la Service</th>
             <th scope="col">Departement</th>
-            <th scope="col" ></th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
-          <tr
-          *ngFor="let S of Service"
-          >
+          <!-- Ligne pour chaque service (utilisation de *ngFor) -->
+          <tr *ngFor="let S of Service">
             <th>{{S.id}}</th>
             <td>{{S.nomService}}</td>
             <td>{{S.nomDepartement}}</td>
             <td></td>
-            <td class="btns" >
+            <td class="btns">
+              <!-- Icône pour la mise à jour du service -->
               <a>
                 <mat-icon
                   aria-hidden="false"
@@ -72,7 +75,8 @@
                 ></mat-icon>
               </a>
 
-              <a >
+              <!-- Icône pour la suppression du service -->
+              <a>
                 <mat-icon
                   aria-hidden="false"
                   class="delete"
@@ -85,10 +89,10 @@
         </tbody>
       </table>
     </div>
-
   </div>
 
-  <div  class="alert alert-secondary" role="alert">
+  <!-- Message d'alerte s'il n'y a pas de stagiaire -->
+  <div class="alert alert-secondary" role="alert">
     Dosen't exist any stagiaire pour l'instant
   </div>
 </body>

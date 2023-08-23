@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit{
   ) {}
  /** event Log Out */
   event() {
-    this.router.navigate(['login'])
+    this.router.navigate(['/'])
   }
 
   ngOnInit(): void { }

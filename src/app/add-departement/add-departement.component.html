@@ -1,8 +1,11 @@
 <div class="card">
+  <!-- En-tête de la carte pour l'ajout d'un département -->
   <div class="card-header">Add Departement</div>
 
   <div class="card-body">
     <form>
+
+      <!-- Champ pour l'ID du département -->
       <div class="form-group">
         <label for="exampleFormControlInput1">ID</label>
         <input
@@ -11,27 +14,25 @@
           id="exampleFormControlInput1"
           placeholder="le nom"
           name="id_Filiere"
-
         />
       </div>
 
+      <!-- Champ pour le nom du département -->
       <div class="form-group">
         <label for="exampleFormControlInput1">Nom de la Departement</label>
         <input
           type="text"
           class="form-control"
-
           placeholder="le Prenom"
           name="filiere"
-
         />
       </div>
 
+      <!-- Champ pour sélectionner la direction du département -->
       <div class="form-group">
         <label for="">Nom Direction</label>
         <select
           name="Service"
-
           class="form-select"
           aria-label="Default select example"
         >
@@ -47,11 +48,14 @@
         </select>
       </div>
 
-      <button  type="button" class="btn btn-light"
-      style="background-color: rgba(146, 195, 238, 0.597);  border-radius: 0.5rem;">
+      <!-- Bouton pour enregistrer -->
+      <button
+        type="button"
+        class="btn btn-light"
+        style="background-color: rgba(146, 195, 238, 0.597);  border-radius: 0.5rem;"
+      >
         Enregistrer
       </button>
     </form>
   </div>
 </div>
-

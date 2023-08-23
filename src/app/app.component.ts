@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
       // Vérification si l'événement est une instance de NavigationEnd
       if (event instanceof NavigationEnd) {
         // Mise à jour de la propriété isLoginPage en fonction de l'URL de navigation
-        this.isLoginPage = event.url === '/login';
+        this.isLoginPage = event.url === '/';
       }
     });
   }
