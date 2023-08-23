@@ -8,6 +8,9 @@ import { Router } from '@angular/router';
 })
 export class ServiceComponent implements OnInit {
 
+  // pour Liste les Services
+  Service! : Array<any>
+
   constructor(
     private router : Router,
   ) {}
@@ -18,6 +21,14 @@ export class ServiceComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    this.Service = [
+      {id : 1, nomService:"Genie Logiciel", nomDepartement:"DSI"},
+      {id : 2, nomService:"Reseau informatique", nomDepartement:"DSI"},
+      {id : 3, nomService:"SAP", nomDepartement:"DSI"},
+      {id : 4, nomService:"D610", nomDepartement:"D600"},
+      {id : 5, nomService:"D720", nomDepartement:"D700"},
+    ]
 
   }
 

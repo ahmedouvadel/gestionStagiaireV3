@@ -49,13 +49,14 @@
         </thead>
         <tbody>
           <tr
+          *ngFor="let S of Stagiaire"
           >
-            <td>01</td>
-            <td>Ahmedou</td>
-            <td>Vadel</td>
-            <td>DTI</td>
-            <td>44223507</td>
-            <td>1281</td>
+            <td>{{S.id}}</td>
+            <td>{{S.nom}}</td>
+            <td>{{S.prenom}}</td>
+            <td>{{S.Departement}}</td>
+            <td>{{S.nTelephone}}</td>
+            <td>{{S.Badge}}</td>
 
       <!-- icon Update et Drop -->
             <td class="btns" >
