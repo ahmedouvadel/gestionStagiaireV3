@@ -1,8 +1,10 @@
 <div class="card">
+  <!-- En-tête de la carte -->
   <div class="card-header">Add Service</div>
 
   <div class="card-body">
     <form>
+      <!-- Champ pour le nom d'utilisateur -->
       <div class="form-group">
         <label for="exampleFormControlInput1">Nom d'utilisateur</label>
         <input
@@ -10,28 +12,25 @@
           class="form-control"
           id="exampleFormControlInput1"
           placeholder=" Nom d'utilisateur"
-
-
         />
       </div>
 
+      <!-- Champ pour le mot de passe -->
       <div class="form-group">
         <label for="exampleFormControlInput1">Mot de passe</label>
         <input
           type="password"
           class="form-control"
-
           placeholder=" Mot De Passe"
           name="Motdepasse"
-
         />
       </div>
 
+      <!-- Champ pour le rôle de l'utilisateur -->
       <div class="form-group">
         <label for=""> Role</label>
         <select
           name="Roel"
-
           class="form-select"
           aria-label="Default select example"
         >
@@ -40,15 +39,17 @@
           </option>
           <option value="AdminUser">AdminUser</option>
           <option value="Supervisor">Supervisor</option>
-
         </select>
       </div>
 
-      <button  type="button" class="btn btn-light"
-      style="background-color: rgba(146, 195, 238, 0.597);  border-radius: 0.5rem;">
+      <!-- Bouton pour enregistrer -->
+      <button
+        type="button"
+        class="btn btn-light"
+        style="background-color: rgba(146, 195, 238, 0.597);  border-radius: 0.5rem;"
+      >
         Enregistrer
       </button>
     </form>
   </div>
 </div>
-

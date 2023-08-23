@@ -20,7 +20,7 @@ import { HomeComponent } from './stagiaire/home.component';
 const routes: Routes = [
 
   {path:'', redirectTo:'login' , pathMatch:'full' },
-  { path: 'login', component: LoginComponent },
+  { path: '', component: LoginComponent },
   {path: 'card', component: CardComponent},
   {path: 'utilisateurs', component: DashboardComponent},
   {path: 'stagiaire', component: HomeComponent},
