@@ -1,7 +1,4 @@
-<head>
-  <!-- ... autres balises head ... -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-xK0s0n+6qoB+7Vx3z+MY6z2M7+QK0n2tc4xq4+2Y9yK3z9T2+h7egeIUUWz+2X1J" crossorigin="anonymous">
-</head>
+<body>
 <div class="container">
   <ul class="nav nav-tabs">
     <li class="nav-item">
@@ -10,7 +7,7 @@
     </li>
     <li class="nav-item">
       <!-- Onglet "Raison" -->
-      <a class="nav-link" [ngClass]="{ 'active': currentTab === 'reason' }" (click)="changeTab('reason')">Raison</a>
+      <a class="nav-link" [ngClass]="{ 'active': currentTab === 'reason' }" (click)="changeTab('reason')">Plus</a>
     </li>
     <li class="nav-item">
       <!-- Onglet "Actions" -->
@@ -22,7 +19,7 @@
     <div class="tab-pane" [ngClass]="{ 'active': currentTab === 'details' }">
       <!-- Contenu de l'onglet "Détails" -->
       <div>
-        <h3>Détails du statut</h3>
+        <h3></h3>
         <table id="stage-table">
           <thead>
             <tr>
@@ -35,16 +32,56 @@
           <tbody>
             <!-- Stages existants -->
             <tr class="completed">
-              <td>Ahmed Vadel</td>
+              <th>Ahmed Vadel</th>
               <td>Janvier 2022 - Mars 2022</td>
               <td><i class="fas fa-check"></i> Terminé</td>
-              <td><i class="fas fa-trash-alt"></i> <mat-icon>delete</mat-icon><mat-icon>mail</mat-icon><mat-icon>voir</mat-icon></td>
+              <td class="btns" >
+                <a>
+                  <mat-icon
+                    aria-hidden="false"
+                    aria-label="Example home icon"
+                    fontIcon="mail"
+                  ></mat-icon>
+                </a>
+
+                <a >
+                  <mat-icon
+                    aria-hidden="false"
+                    class="delete"
+                    aria-label="Example home icon"
+                    fontIcon="delete"
+                  ></mat-icon>
+                </a>
+              </td>
+
+
+
             </tr>
+            <br>
             <tr class="ongoing">
-              <td>Ahmadou</td>
+              <th>Ahmadou</th>
               <td>Avril 2022 - Juin 2022</td>
               <td><i class="fas fa-spinner"></i> En cours</td>
-              <td><i class="fas fa-trash-alt"></i> <mat-icon>delete</mat-icon><mat-icon>mail</mat-icon><mat-icon>voir</mat-icon></td>
+
+              <td class="btns" >
+                <a>
+                  <mat-icon
+                    aria-hidden="false"
+                    aria-label="Example home icon"
+                    fontIcon="mail"
+                  ></mat-icon>
+                </a>
+
+                <a >
+                  <mat-icon
+                    aria-hidden="false"
+                    class="delete"
+                    aria-label="Example home icon"
+                    fontIcon="delete"
+                  ></mat-icon>
+                </a>
+              </td>
+
           </tbody>
         </table>
       </div>
@@ -61,3 +98,5 @@
     </div>
   </div>
 </div>
+
+</body>
