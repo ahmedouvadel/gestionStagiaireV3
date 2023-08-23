@@ -37,7 +37,7 @@ const routes: Routes = [
   {path:'service/add', component: AddServiceComponent },
   {path:'Utilisateur/add', component: AddUtilisateurComponent},
   {path:'Status', component: StatusEchecComponent},
-  
+
 ];
 
 @NgModule({

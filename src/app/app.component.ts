@@ -10,7 +10,7 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class AppComponent implements OnInit {
   // Propriété pour le titre du composant
-  title = 'Admin ahmadou ';
+  title = 'Admin Ahmedou ';
 
   // Propriété pour le contrôle de l'état de la barre latérale (ouverture/fermeture)
   sideBarOpen = true;
