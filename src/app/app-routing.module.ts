@@ -1,6 +1,5 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './stagiaire/home.component';
 import { DashboardComponent } from './utilisateurs/dashboard.component';
 import { CardComponent } from './card/card.component';
 import { DepartementComponent } from './departement/departement.component';
@@ -17,18 +16,18 @@ import { AddServiceComponent } from './add-service/add-service.component';
 import { AddUtilisateurComponent } from './add-utilisateur/add-utilisateur.component';
 import { StatusEchecComponent } from './status-echec/status-echec.component';
 import { DetailsComponent } from './details/details.component';
-
-
+import { HomeComponent } from './stagiaire/home.component';
 const routes: Routes = [
 
   {path:'', redirectTo:'login' , pathMatch:'full' },
+  { path: '', component: LoginComponent },
   {path: 'card', component: CardComponent},
   {path: 'utilisateurs', component: DashboardComponent},
   {path: 'stagiaire', component: HomeComponent},
   {path:'departement', component: DepartementComponent},
   {path:'stagiaire/add', component: AddStagiaireComponent},
   {path:'departement/add', component: AddDepartementComponent},
-  {path:'login', component: LoginComponent},
+
   {path:'departement/edit', component: EditDepartementComponent},
   {path:'stagiaire/edit', component: EditStagiaireComponent},
   {path:'admin', component: AdminTemplateComponent },

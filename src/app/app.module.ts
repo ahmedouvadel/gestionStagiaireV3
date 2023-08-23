@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -36,6 +35,8 @@ import { AddDirectionComponent } from './add-direction/add-direction.component';
 import { AddUtilisateurComponent } from './add-utilisateur/add-utilisateur.component';
 import { StatusEchecComponent } from './status-echec/status-echec.component';
 import { DetailsComponent } from './details/details.component';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 @NgModule({
   declarations: [
@@ -79,7 +80,7 @@ import { DetailsComponent } from './details/details.component';
     FormsModule,
     ReactiveFormsModule,
     //BreadcrumbModule,
-
+    MatDialogModule,
 
   ],
   providers: [],
