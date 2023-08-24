@@ -59,25 +59,32 @@
           </tr>
         </thead>
         <tbody>
-          <tr
-          *ngFor="let S of Departement"
-          >
-            <td>{{S.id}}</td>
-            <td>{{S.Departement}}</td>
-            <td>{{S.Direction}}</td>
-          
+          <!-- Ligne pour chaque département -->
+          <tr>
+            <th>dsfdsf</th>
+            <td>dfdds</td>
+            <td>dsfds</td>
+            <td></td>
+            <td class="btns">
+              <!-- Icône pour la mise à jour du département -->
+              <a>
+                <mat-icon
+                  aria-hidden="false"
+                  aria-label="Example home icon"
+                  fontIcon="update"
+                ></mat-icon>
+              </a>
 
-     
-            <!-- Dans votre boucle *ngFor pour afficher la liste des stagiaires -->
-<td class="btns">
-  <a (click)="openUpdateStagiaireDialog()" >
-    <mat-icon aria-hidden="false" aria-label="Modifier">edit</mat-icon>
-  </a>
-  <a (click)="openDeleteConfirmationDialog(S.id)">
-    <mat-icon aria-hidden="false" class="delete" aria-label="Supprimer">delete</mat-icon>
-  </a>
-</td>
-
+              <!-- Icône pour la suppression du département -->
+              <a>
+                <mat-icon
+                  aria-hidden="false"
+                  class="delete"
+                  aria-label="Example home icon"
+                  fontIcon="delete"
+                ></mat-icon>
+              </a>
+            </td>
           </tr>
         </tbody>
       </table>

@@ -35,6 +35,7 @@ export class HomeComponent implements OnInit {
 
   }
 
+<<<<<<< HEAD
   openAddStagiaireDialog() {
     // Ouvrir la boîte de dialogue pour ajouter un nouveau stagiaire
     const dialogRef = this.dialog.open(AddStagiaireComponent, {
@@ -52,6 +53,13 @@ export class HomeComponent implements OnInit {
       width: '300px',
       data: stagiaireId
     });
+=======
+  DeleteStagiaire(S: any) {
+    let index = this.Stagiaire.indexOf(S);
+    this.Stagiaire.splice(index,1);
+  }
+
+>>>>>>> f529490cd49cb7df2463cea863fdae2e323660c2
 
     dialogRef.afterClosed().subscribe(result => {
       if (result === 'confirm') {
