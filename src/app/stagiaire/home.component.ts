@@ -1,5 +1,9 @@
 import { Component, OnInit  } from '@angular/core';
 import { Route, Router } from '@angular/router';
+import { AddStagiaireComponent } from '../add-stagiaire/add-stagiaire.component'; // Remplacez par le chemin de votre boîte de dialogue
+import { MatDialog } from '@angular/material/dialog';
+import { DleteStagiaireComponent } from '../dlete-stagiaire/dlete-stagiaire.component';
+import { EditStagiaireComponent } from '../edit-stagiaire/edit-stagiaire.component';
 
 @Component({
   selector: 'app-home',
@@ -13,8 +17,7 @@ export class HomeComponent implements OnInit {
   Stagiaire! : Array<any>
 
   constructor(
-    private router : Router,
-  ){}
+    private router : Router,private dialog: MatDialog  ){}
 
   event(){
     this.router.navigate(['stagiaire/add'])
@@ -32,7 +35,46 @@ export class HomeComponent implements OnInit {
 
   }
 
+  openAddStagiaireDialog() {
+    // Ouvrir la boîte de dialogue pour ajouter un nouveau stagiaire
+    const dialogRef = this.dialog.open(AddStagiaireComponent, {
+      data: { action: 'Ajouter' },
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        // Effectuer l'ajout ici avec le résultat
+      }
+    });
+  }
+  openDeleteConfirmationDialog(stagiaireId: number) {
+    const dialogRef = this.dialog.open(DleteStagiaireComponent, {
+      width: '300px',
+      data: stagiaireId
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === 'confirm') {
+        // Appel à la méthode de suppression du stagiaire
+        this.deleteStagiaire(stagiaireId);
+      }
+    });
+  }
 
+  deleteStagiaire(stagiaireId: number) {
+    // Implémentez ici la logique de suppression du stagiaire
+  }
+  openUpdateStagiaireDialog() {
+    // Ouvrir la boîte de dialogue pour ajouter un nouveau stagiaire
+    const dialogRef = this.dialog.open(EditStagiaireComponent, {
+      data: { action: 'Ajouter' },
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        // Effectuer l'ajout ici avec le résultat
+      }
+    });
+  }
 }
 

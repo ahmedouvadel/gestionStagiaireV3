@@ -36,6 +36,9 @@ import { AddUtilisateurComponent } from './add-utilisateur/add-utilisateur.compo
 import { StatusEchecComponent } from './status-echec/status-echec.component';
 import { DetailsComponent } from './details/details.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { DialogComponent } from './dialog/dialog.component';
+import { DleteStagiaireComponent } from './dlete-stagiaire/dlete-stagiaire.component';
+import { DleteDepartementComponent } from './dlete-departement/dlete-departement.component';
 
 
 @NgModule({
@@ -59,7 +62,10 @@ import { MatDialogModule } from '@angular/material/dialog';
     AddDirectionComponent,
     AddUtilisateurComponent,
     StatusEchecComponent,
-    DetailsComponent
+    DetailsComponent,
+    DialogComponent,
+    DleteStagiaireComponent,
+    DleteDepartementComponent
   ],
   imports: [
     BrowserAnimationsModule,
