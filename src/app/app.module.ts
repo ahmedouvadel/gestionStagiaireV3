@@ -39,6 +39,12 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog.component';
 import { DleteStagiaireComponent } from './dlete-stagiaire/dlete-stagiaire.component';
 import { DleteDepartementComponent } from './dlete-departement/dlete-departement.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
+import { DleteUserComponent } from './dlete-user/dlete-user.component';
+import { DleteServiceComponent } from './dlete-service/dlete-service.component';
+import { EditServiceComponent } from './edit-service/edit-service.component';
+import { EvoyerMailComponent } from './evoyer-mail/evoyer-mail.component';
+import { DeletePeriodeComponent } from './delete-periode/delete-periode.component';
 
 
 @NgModule({
@@ -65,7 +71,13 @@ import { DleteDepartementComponent } from './dlete-departement/dlete-departement
     DetailsComponent,
     DialogComponent,
     DleteStagiaireComponent,
-    DleteDepartementComponent
+    DleteDepartementComponent,
+    EditUserComponent,
+    DleteUserComponent,
+    DleteServiceComponent,
+    EditServiceComponent,
+    EvoyerMailComponent,
+    DeletePeriodeComponent
   ],
   imports: [
     BrowserAnimationsModule,

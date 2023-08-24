@@ -1,0 +1,52 @@
+<div class="card">
+    <!-- En-tête de la carte -->
+    <div class="card-header">Modifier Utulisateur</div>
+  
+    <div class="card-body">
+      <form>
+        <!-- Champ pour le nom -->
+        <div class="form-group">
+          <label for="nom">Nom</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nom"
+            placeholder=" nom"
+            required
+          />
+        </div>
+  
+        <!-- Champ pour le Role -->
+        <div class="form-group">
+          <label for="Role">Role</label>
+          <input
+            type="text"
+            class="form-control"
+            id="prenom"
+            placeholder="Role"
+          />
+        </div>
+  
+        
+        <!-- Boutons pour Enregistrer et Annuler -->
+        <div class="d-flex justify-content-between">
+          <button
+            type="button"
+            class="btn btn-light"
+            style="background-color: rgba(146, 195, 238, 0.597); border-radius: 0.5rem;"
+          >
+            Modifier
+          </button>
+          <button
+            type="button"
+            class="btn btn-light"
+            style="background-color: rgba(255, 0, 0, 0.597); border-radius: 0.5rem;"
+            (click)="cancelForm()"
+          >
+            Annuler
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

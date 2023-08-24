@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AddServiceComponent } from '../add-service/add-service.component';
+import { DleteServiceComponent } from '../dlete-service/dlete-service.component';
+import { MatDialog } from '@angular/material/dialog';
+import { EditServiceComponent } from '../edit-service/edit-service.component';
 
 @Component({
   selector: 'app-service',
@@ -12,7 +16,7 @@ export class ServiceComponent implements OnInit {
   Service! : Array<any>
 
   constructor(
-    private router : Router,
+    private router : Router,private dialog: MatDialog 
   ) {}
   /** event pour ajoute un service */
 
@@ -31,5 +35,49 @@ export class ServiceComponent implements OnInit {
     ]
 
   }
+  openAddSeviceDialog() {
+    // Ouvrir la boîte de dialogue pour ajouter un nouveau stagiaire
+    const dialogRef = this.dialog.open(AddServiceComponent, {
+      data: { action: 'Ajouter' },
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        // Effectuer l'ajout ici avec le résultat
+      }
+    });
+  }
+  openDeleteConfirmationDialog(stagiaireId: number) {
+    const dialogRef = this.dialog.open(DleteServiceComponent, {
+      width: '300px',
+      data: stagiaireId
+    });
 
+   
+
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === 'confirm') {
+        // Appel à la méthode de suppression du stagiaire
+        this.deleteStagiaire(stagiaireId);
+      }
+    });
+  }
+
+  deleteStagiaire(stagiaireId: number) {
+    // Implémentez ici la logique de suppression du stagiaire
+  }
+  openUpdateStagiaireDialog() {
+    // Ouvrir la boîte de dialogue pour ajouter un nouveau stagiaire
+    const dialogRef = this.dialog.open(EditServiceComponent, {
+      data: { action: 'Ajouter' },
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        // Effectuer l'ajout ici avec le résultat
+      }
+    });
+  }
 }
+
