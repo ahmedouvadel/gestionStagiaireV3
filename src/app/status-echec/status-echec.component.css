@@ -101,3 +101,7 @@ p {
     .ongoing i {
       color: orange;
     }
+
+    .delete{
+      cursor: pointer;
+    }

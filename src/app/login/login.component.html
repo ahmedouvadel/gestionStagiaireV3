@@ -1,18 +1,18 @@
-
-<div class="alert alert-secondary" role="alert">
-
+<!-- {{userFormGroup.value | json}} -->
+<!-- <div class="text-danger" *ngIf="eroorMessage">{{eroorMessage}}</div> -->
+<div class="alert alert-secondary" *ngIf="eroorMessage" role="alert">
+  {{ eroorMessage }}
 </div>
-<form >
+<form [formGroup]="userFormGroup" (ngSubmit)="handleLogin()">
   <!-- Email input -->
   <div class="form-outline mb-4">
     <img src="../../assets/picture.png" alt="simplon">
-    <br>
-    <h3>Login page</h3>
+    <h3>Logn page</h3>
     <input
       type="text"
       id="form2Example1"
       class="form-control"
-
+      formControlName="username"
     />
     <label class="form-label" for="form2Example1">Usernanme</label>
   </div>
@@ -23,7 +23,7 @@
       type="password"
       id="form2Example2"
       class="form-control"
-
+      formControlName="password"
     />
     <label class="form-label" for="form2Example2">Password</label>
   </div>
@@ -31,8 +31,7 @@
   <!-- Submit button -->
   <button
     type="button"
-    (click)="event()"
-
+    (click)="handleLogin()"
     class="btn btn-primary btn-block mb-4"
   >
     Sign in
