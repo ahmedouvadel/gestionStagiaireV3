@@ -18,17 +18,11 @@
       </div>
 
    <!-- Section pour ajoute un un stagiaire -->
-      <span
-          class="link-primary"
-          (click)="event()"
-        >
-          <button
-          class="add"
-          (click)="event()"
-          style="background-color: rgba(146, 195, 238, 0.597);  border-radius: 0.5rem;"
-
-          >Nouveau Stagiaire </button></span
-        >
+   <span class="link-primary" (click)="openAddStagiaireDialog()">
+    <button class="add" style="background-color: rgba(146, 195, 238, 0.597); border-radius: 0.5rem;">
+      Nouveau Stagiaire
+    </button>
+  </span>
     </div>
   </div>
   <!-- Section d'afficher un stagiaire-->
@@ -45,6 +39,7 @@
             <th scope="col">Departement</th>
             <th scope="col">N°Telephone</th>
             <th scope="col" >N°Badge</th>
+            <th scope="col" >Action</th>
           </tr>
         </thead>
         <tbody>
@@ -58,29 +53,19 @@
             <td>{{S.nTelephone}}</td>
             <td>{{S.Badge}}</td>
 
+     
+            <!-- Dans votre boucle *ngFor pour afficher la liste des stagiaires -->
+<td class="btns">
+  <a (click)="openUpdateStagiaireDialog()" >
+    <mat-icon aria-hidden="false" aria-label="Modifier">edit</mat-icon>
+  </a>
+  <a (click)="openDeleteConfirmationDialog(S.id)">
+    <mat-icon aria-hidden="false" class="delete" aria-label="Supprimer">delete</mat-icon>
+  </a>
+</td>
+
       <!-- icon Update et Drop -->
-            <td
-            class="btns"
-            (click)="DeleteStagiaire(S)"
-             >
-              <a >
-                <mat-icon
-                  aria-hidden="false"
-                  class="delete"
-                  aria-label="Example home icon"
-                  fontIcon="delete"
-                ></mat-icon>
-              </a>
-
-              <a >
-                <mat-icon
-                  aria-hidden="false"
-                  class="delete"
-                  aria-label="Example home icon"
-
-                ></mat-icon>
-              </a>
-            </td>
+           
           </tr>
         </tbody>
       </table>

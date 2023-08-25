@@ -29,10 +29,10 @@
       </select>
 
       <!-- Bouton pour ajouter un nouveau département -->
-      <span class="link-primary">
+      <span class="link-primary" (click)="openDepartementDialog()">
         <button
           class="add"
-          (click)="event()"
+         
           style="background-color: rgba(146, 195, 238, 0.597);  border-radius: 0.5rem;"
         >
           Nouveau Departement
@@ -55,43 +55,39 @@
             <th scope="col">id</th>
             <th scope="col">Nom de la Departement</th>
             <th scope="col">Direction</th>
-            <th scope="col"></th>
+            <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
-          <!-- Ligne pour chaque département -->
-          <tr>
-            <th>dsfdsf</th>
-            <td>dfdds</td>
-            <td>dsfds</td>
-            <td></td>
-            <td class="btns">
-              <!-- Icône pour la mise à jour du département -->
-              <a>
-                <mat-icon
-                  aria-hidden="false"
-                  class="update"
-                  aria-label="Example home icon"
-                  fontIcon="update"
-                ></mat-icon>
-              </a>
+          <tr
+          *ngFor="let D of Departement"
+          >
+            <td>{{D.id}}</td>
+            
+            <td>{{D.Departement}}</td>
+            <td>{{D.Direction}}</td>
+           
 
-              <!-- Icône pour la suppression du département -->
-              <a>
-                <mat-icon
-                  aria-hidden="false"
-                  class="delete"
-                  aria-label="Example home icon"
-                  fontIcon="delete"
-                ></mat-icon>
-              </a>
-            </td>
+
+     
+            <!-- Dans votre boucle *ngFor pour afficher la liste des stagiaires -->
+<td class="btns">
+  <a (click)="openUpdateStagiaireDialog()" >
+    <mat-icon aria-hidden="false" aria-label="Modifier">edit</mat-icon>
+  </a>
+  <a (click)="openDeleteConfirmationDialog(D.id)">
+    <mat-icon aria-hidden="false" class="delete" aria-label="Supprimer">delete</mat-icon>
+  </a>
+</td>
+
+      <!-- icon Update et Drop -->
+           
           </tr>
         </tbody>
       </table>
     </div>
-  </div>
 
+  </div>
   <!-- Message d'alerte s'il n'y a pas de stagiaire -->
   <div class="alert alert-secondary" role="alert">
     Dosen't exist any stagiaire pour l'instant

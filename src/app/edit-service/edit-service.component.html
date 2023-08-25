@@ -1,0 +1,69 @@
+<div class="card">
+    <!-- En-tête de la carte -->
+    <div class="card-header">Modifier  Service</div>
+  
+    <div class="card-body">
+      <form>
+  
+        <!-- Champ pour l'ID du service -->
+        <div class="form-group">
+          <label for="exampleFormControlInput1">ID</label>
+          <input
+            type="number"
+            class="form-control"
+            id="exampleFormControlInput1"
+            placeholder="le nom"
+          />
+        </div>
+  
+        <!-- Champ pour le nom du service -->
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Nom de la Service</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="le Prenom"
+            name="filiere"
+          />
+        </div>
+  
+        <!-- Champ pour sélectionner le département -->
+        <div class="form-group">
+          <label for=""> Departement</label>
+          <select
+            name="Service"
+            class="form-select"
+            aria-label="Default select example"
+          >
+            <option value="" disabled selected hidden>
+              Rechercher Les Departement
+            </option>
+            <option value="DTI">DTI</option>
+            <option value="DHCP">DHCP</option>
+            <option value="DAL">DAL</option>
+            <option value="DEPT700">DEPT700</option>
+            <option value="DEPT500">DEPT500</option>
+            <option value="DEPT600">DEPT600</option>
+          </select>
+        </div>
+  
+        <!-- Bouton pour enregistrer -->
+        <button
+          type="button"
+          class="btn btn-light"
+          style="background-color: rgba(146, 195, 238, 0.597);  border-radius: 0.5rem;"
+        >
+          Enregistrer
+        </button>
+        <button
+        type="button"
+        class="btn btn-light"
+        style="background-color: rgba(255, 0, 0, 0.597); border-radius: 0.5rem;"
+        (click)="cancelForm()"
+      >
+        Annuler
+      </button>
+      </form>
+    </div>
+  </div>
+  

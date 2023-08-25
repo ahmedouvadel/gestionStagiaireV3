@@ -1,8 +1,11 @@
 <div class="card">
-  <div class="card-header">Edit filiere</div>
+  <!-- En-tête de la carte pour l'ajout d'un département -->
+  <div class="card-header">Modifier  Departement</div>
 
   <div class="card-body">
     <form>
+
+      <!-- Champ pour l'ID du département -->
       <div class="form-group">
         <label for="exampleFormControlInput1">ID</label>
         <input
@@ -11,43 +14,56 @@
           id="exampleFormControlInput1"
           placeholder="le nom"
           name="id_Filiere"
-  
         />
       </div>
 
+      <!-- Champ pour le nom du département -->
       <div class="form-group">
-        <label for="exampleFormControlInput1">Nom de la Filiere</label>
+        <label for="exampleFormControlInput1">Nom de la Departement</label>
         <input
           type="text"
           class="form-control"
-
-          placeholder="Filiere"
+          placeholder="le Prenom"
           name="filiere"
-
         />
       </div>
 
+      <!-- Champ pour sélectionner la direction du département -->
       <div class="form-group">
-        <label for="">Niveau</label>
+        <label for="">Nom Direction</label>
         <select
-          name="niveau"
-
+          name="Service"
           class="form-select"
           aria-label="Default select example"
         >
           <option value="" disabled selected hidden>
-            Rechercher Les Filieres
+            Rechercher De Direction
           </option>
-          <option value="TS">TS</option>
-          <option value="T">T</option>
-          <option value="Q">Q</option>
+          <option value="DTI">DTI</option>
+          <option value="DHCP">DHCP</option>
+          <option value="DAL">DAL</option>
+          <option value="DEPT700">DEPT700</option>
+          <option value="DEPT500">DEPT500</option>
+          <option value="DEPT600">DEPT600</option>
         </select>
       </div>
 
-      <button  type="button" class="btn btn-light">
-        Enregistrer
+      <!-- Bouton pour enregistrer -->
+      <button
+        type="button"
+        class="btn btn-light"
+        style="background-color: rgba(146, 195, 238, 0.597);  border-radius: 0.5rem;"
+      >
+        Modifier 
       </button>
+      <button
+      type="button"
+      class="btn btn-light"
+      style="background-color: rgba(255, 0, 0, 0.597); border-radius: 0.5rem;"
+      (click)="cancelForm()"
+    >
+      Annuler
+    </button>
     </form>
   </div>
 </div>
-

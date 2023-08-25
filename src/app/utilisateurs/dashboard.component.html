@@ -36,7 +36,7 @@
         >
           <button
           class="add"
-          (click)="event()"
+          (click)="openAddUserDialog()"
 
           style="background-color: rgba(146, 195, 238, 0.597);  border-radius: 0.5rem;"
 
@@ -55,35 +55,30 @@
             <th scope="col">id</th>
             <th scope="col">Nom de l'utilisateur</th>
             <th scope="col">Role</th>
-            <th scope="col" ></th>
+            <th scope="col" >Action</th>
           </tr>
         </thead>
         <tbody>
           <tr
-
+          *ngFor="let U of User"
           >
-            <th></th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td class="btns" >
-              <a>
-                <mat-icon
-                  aria-hidden="false"
-                  aria-label="Example home icon"
-                  fontIcon="update"
-                ></mat-icon>
-              </a>
+            <td>{{U.id}}</td>
+            <td>{{U.nom}}</td>
+            <td>{{U.Role}}</td>
+           
+     
+            <!-- Dans votre boucle *ngFor pour afficher la liste des stagiaires -->
+<td class="btns">
+  <a (click)="openUpdateUserDialog()" >
+    <mat-icon aria-hidden="false" aria-label="Modifier">edit</mat-icon>
+  </a>
+  <a (click)="openDeleteUserDialog(U.id)">
+    <mat-icon aria-hidden="false" class="delete" aria-label="Supprimer">delete</mat-icon>
+  </a>
+</td>
 
-              <a >
-                <mat-icon
-                  aria-hidden="false"
-                  class="delete"
-                  aria-label="Example home icon"
-                  fontIcon="delete"
-                ></mat-icon>
-              </a>
-            </td>
+      <!-- icon Update et Drop -->
+           
           </tr>
         </tbody>
       </table>
@@ -91,7 +86,5 @@
 
   </div>
 
-  <div  class="alert alert-secondary" role="alert">
-    Dosen't exist any stagiaire pour l'instant
-  </div>
+  
 </body>

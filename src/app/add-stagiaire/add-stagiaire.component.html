@@ -1,33 +1,34 @@
 <div class="card">
   <!-- En-tête de la carte -->
-  <div class="card-header">Add stagiaire</div>
+  <div class="card-header">Ajouter un stagiaire</div>
 
   <div class="card-body">
     <form>
-
       <!-- Champ pour le nom -->
       <div class="form-group">
-        <label for="exampleFormControlInput1">nom</label>
+        <label for="nom">Nom</label>
         <input
           type="text"
           class="form-control"
-          placeholder="le nom"
+          id="nom"
+          placeholder="Le nom"
           required
         />
       </div>
 
       <!-- Champ pour le prénom -->
       <div class="form-group">
-        <label for="exampleFormControlInput1">Prenom</label>
+        <label for="prenom">Prénom</label>
         <input
           type="text"
           class="form-control"
-          placeholder="Le Prenom"
+          id="prenom"
+          placeholder="Le prénom"
         />
       </div>
 
-      <!-- Champ pour la date de début -->
-      <div class="form-group">
+       <!-- Champ pour la date de début -->
+       <div class="form-group">
         <label > Date de debut </label>
         <input
           type="date"
@@ -76,14 +77,24 @@
         />
       </div>
 
-      <!-- Bouton pour enregistrer -->
-      <button
-        type="button"
-        class="btn btn-light"
-        style="background-color: rgba(146, 195, 238, 0.597);  border-radius: 0.5rem;"
-      >
-        Enregistrer
-      </button>
+      <!-- Boutons pour Enregistrer et Annuler -->
+      <div class="d-flex justify-content-between">
+        <button
+          type="button"
+          class="btn btn-light"
+          style="background-color: rgba(146, 195, 238, 0.597); border-radius: 0.5rem;"
+        >
+          Enregistrer
+        </button>
+        <button
+          type="button"
+          class="btn btn-light"
+          style="background-color: rgba(255, 0, 0, 0.597); border-radius: 0.5rem;"
+          (click)="cancelForm()"
+        >
+          Annuler
+        </button>
+      </div>
     </form>
   </div>
 </div>

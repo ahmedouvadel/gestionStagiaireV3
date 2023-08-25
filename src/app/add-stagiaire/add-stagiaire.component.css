@@ -1,26 +1,30 @@
-.card {
+/* Styles pour la carte */
+/*.card {
   width: 75%;
   margin-left: 15%;
   margin-top: 20px;
-}
+}*/
 
-.form-group {
+/* Styles pour les champs de formulaire */
+/*.form-group {
   width: 50%;
   margin: 0 auto;
   display: block;
   margin-bottom: 20px;
-}
+}*/
 
-.alert-danger {
+/* Styles pour les messages d'alerte */
+/*.alert-danger {
   text-align: center;
   width: 50%;
   margin: 0 auto;
   display: block;
   margin-bottom: 20px;
-}
+}*/
 
-button {
+/* Styles pour les boutons */
+/*button {
   margin: 0 auto;
   display: block;
   margin-top: 20px;
-}
+}*/
