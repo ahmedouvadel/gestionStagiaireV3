@@ -21,8 +21,8 @@
       <span class="link-primary">
         <button
           class="add"
+          (click)="openAddDirectionDialog()"
           style="background-color: rgba(146, 195, 238, 0.597);  border-radius: 0.5rem;"
-          (click)="event()"
         >
           Nouveau Direction
         </button>
@@ -48,13 +48,24 @@
         </thead>
         <tbody>
           <!-- Ligne pour chaque direction -->
-          <tr>
-            <th></th>
-            <td></td>
-            <td></td>
-            <td></td>
+          <tr
+          *ngFor="let D of Direction"
+          >
+            <th>{{D.id}}</th>
+            <td>{{D.Direction}}</td>
+
             <td class="btns">
-              <!-- Icône pour la mise à jour de la direction -->
+
+                          <!-- Dans votre boucle *ngFor pour afficher la liste des stagiaires -->
+<td class="btns">
+  <a style="cursor: pointer;"  (click)="openUpdateStagiaireDialog()" >
+    <mat-icon  aria-hidden="false" aria-label="Modifier">edit</mat-icon>
+  </a>
+  <a style="cursor: pointer;" (click)="openDeleteConfirmationDialog(D.id)">
+    <mat-icon aria-hidden="false" class="delete" aria-label="Supprimer">delete</mat-icon>
+  </a>
+</td>
+<!--
               <a>
                 <mat-icon
                   aria-hidden="false"
@@ -63,7 +74,7 @@
                 ></mat-icon>
               </a>
 
-              <!-- Icône pour la suppression de la direction -->
+
               <a>
                 <mat-icon
                   aria-hidden="false"
@@ -72,7 +83,7 @@
                   fontIcon="delete"
                 ></mat-icon>
               </a>
-            </td>
+            </td> -->
           </tr>
         </tbody>
       </table>

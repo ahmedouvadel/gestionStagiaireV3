@@ -32,7 +32,7 @@
       <span class="link-primary" (click)="openDepartementDialog()">
         <button
           class="add"
-         
+
           style="background-color: rgba(146, 195, 238, 0.597);  border-radius: 0.5rem;"
         >
           Nouveau Departement
@@ -63,16 +63,16 @@
           *ngFor="let D of Departement"
           >
             <td>{{D.id}}</td>
-            
+
             <td>{{D.Departement}}</td>
             <td>{{D.Direction}}</td>
-           
 
 
-     
+
+
             <!-- Dans votre boucle *ngFor pour afficher la liste des stagiaires -->
 <td class="btns">
-  <a (click)="openUpdateStagiaireDialog()" >
+  <a style="cursor: pointer;" (click)="openUpdateStagiaireDialog()" >
     <mat-icon aria-hidden="false" aria-label="Modifier">edit</mat-icon>
   </a>
   <a (click)="openDeleteConfirmationDialog(D.id)">
@@ -81,7 +81,7 @@
 </td>
 
       <!-- icon Update et Drop -->
-           
+
           </tr>
         </tbody>
       </table>

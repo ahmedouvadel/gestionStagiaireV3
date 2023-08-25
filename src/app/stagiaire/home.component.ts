@@ -26,11 +26,11 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
 
     this.Stagiaire =[
-      {id: 1, nom:"Ahmedou", prenom:"Vadel", Departement:"DTI",nTelephone: 44223507, Badge:1213 },
-      {id: 2, nom:"Ftimetou", prenom:"Meyn", Departement:"DTI",nTelephone: 22566478, Badge:1415 },
-      {id: 3, nom:"Mohamed", prenom:"Sidine", Departement:"DTI",nTelephone: 44699878, Badge:1236 },
-      {id: 4, nom:"Abdallahi", prenom:"Mohamedou", Departement:"D700",nTelephone: 36547856, Badge:1456 },
-      {id: 5, nom:"Mohamed", prenom:"Mahfoud", Departement:"D600",nTelephone: 26547895, Badge:1785 }
+      {id: 1, nom:"Ahmedou", prenom:"Vadel", Service:"Genie Logiciel",nTelephone: 44223507, Badge:1213 },
+      {id: 2, nom:"Ftimetou", prenom:"Meyn", Service:"Data ",nTelephone: 22566478, Badge:1415 },
+      {id: 3, nom:"Mohamed", prenom:"Sidine", Service:"DTI",nTelephone: 44699878, Badge:1236 },
+      {id: 4, nom:"Abdallahi", prenom:"Mohamedou", Service:"D700",nTelephone: 36547856, Badge:1456 },
+      {id: 5, nom:"Mohamed", prenom:"Mahfoud", Service:"D600",nTelephone: 26547895, Badge:1785 }
     ]
 
   }
@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
     const dialogRef = this.dialog.open(AddStagiaireComponent, {
       data: { action: 'Ajouter' },
     });
-  
+
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         // Effectuer l'ajout ici avec le résultat
@@ -54,7 +54,7 @@ export class HomeComponent implements OnInit {
       data: stagiaireId
     });
 
-   
+
 
 
     dialogRef.afterClosed().subscribe(result => {
@@ -73,7 +73,7 @@ export class HomeComponent implements OnInit {
     const dialogRef = this.dialog.open(EditStagiaireComponent, {
       data: { action: 'Ajouter' },
     });
-  
+
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         // Effectuer l'ajout ici avec le résultat

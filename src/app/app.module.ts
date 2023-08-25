@@ -45,6 +45,8 @@ import { DleteServiceComponent } from './dlete-service/dlete-service.component';
 import { EditServiceComponent } from './edit-service/edit-service.component';
 import { EvoyerMailComponent } from './evoyer-mail/evoyer-mail.component';
 import { DeletePeriodeComponent } from './delete-periode/delete-periode.component';
+import { EditDirectionComponent } from './edit-direction/edit-direction.component';
+import { DleteDirectionComponent } from './dlete-direction/dlete-direction.component';
 
 
 @NgModule({
@@ -77,7 +79,9 @@ import { DeletePeriodeComponent } from './delete-periode/delete-periode.componen
     DleteServiceComponent,
     EditServiceComponent,
     EvoyerMailComponent,
-    DeletePeriodeComponent
+    DeletePeriodeComponent,
+    EditDirectionComponent,
+    DleteDirectionComponent
   ],
   imports: [
     BrowserAnimationsModule,
