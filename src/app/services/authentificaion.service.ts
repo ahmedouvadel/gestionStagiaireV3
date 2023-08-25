@@ -58,7 +58,7 @@ export class AuthentificaionService {
   }
 
   public logout(): Observable<Boolean> {
-    //this.authenticatedUser = undefined;
+    this.authenticatedUser != undefined;
     localStorage.removeItem('authUser');
     return of(true);
   }
