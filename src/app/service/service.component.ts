@@ -4,6 +4,7 @@ import { AddServiceComponent } from '../add-service/add-service.component';
 import { DleteServiceComponent } from '../dlete-service/dlete-service.component';
 import { MatDialog } from '@angular/material/dialog';
 import { EditServiceComponent } from '../edit-service/edit-service.component';
+import { AuthentificaionService } from '../services/authentificaion.service';
 
 @Component({
   selector: 'app-service',
@@ -16,7 +17,9 @@ export class ServiceComponent implements OnInit {
   Service! : Array<any>
 
   constructor(
-    private router : Router,private dialog: MatDialog 
+    private router : Router,
+    private dialog: MatDialog,
+    public authService: AuthentificaionService
   ) {}
   /** event pour ajoute un service */
 
@@ -40,7 +43,7 @@ export class ServiceComponent implements OnInit {
     const dialogRef = this.dialog.open(AddServiceComponent, {
       data: { action: 'Ajouter' },
     });
-  
+
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         // Effectuer l'ajout ici avec le résultat
@@ -53,7 +56,7 @@ export class ServiceComponent implements OnInit {
       data: stagiaireId
     });
 
-   
+
 
 
     dialogRef.afterClosed().subscribe(result => {
@@ -72,7 +75,7 @@ export class ServiceComponent implements OnInit {
     const dialogRef = this.dialog.open(EditServiceComponent, {
       data: { action: 'Ajouter' },
     });
-  
+
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         // Effectuer l'ajout ici avec le résultat

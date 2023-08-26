@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddDirectionComponent } from '../add-direction/add-direction.component';
 import { DleteDirectionComponent } from '../dlete-direction/dlete-direction.component';
 import { EditDirectionComponent } from '../edit-direction/edit-direction.component';
+import { AuthentificaionService } from '../services/authentificaion.service';
 
 @Component({
   selector: 'app-direction',
@@ -15,7 +16,8 @@ export class DirectionComponent implements OnInit {
  Direction!: Array<any>
   constructor(
     private router : Router,
-    private dialog : MatDialog
+    private dialog : MatDialog,
+    public authService: AuthentificaionService
   ) {}
 
   /**event(){

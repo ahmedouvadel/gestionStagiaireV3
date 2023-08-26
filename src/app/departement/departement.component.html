@@ -55,7 +55,7 @@
             <th scope="col">id</th>
             <th scope="col">Nom de la Departement</th>
             <th scope="col">Direction</th>
-            <th scope="col">Action</th>
+            <th *ngIf="authService.hasRole('ADMIN')" scope="col">Action</th>
           </tr>
         </thead>
         <tbody>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthentificaionService } from '../services/authentificaion.service';
 
 @Component({
   selector: 'app-sidenav',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./sidenav.component.css']
 })
 export class SidenavComponent {
+  constructor(
+    public authService : AuthentificaionService
+  ) {}
 
 }

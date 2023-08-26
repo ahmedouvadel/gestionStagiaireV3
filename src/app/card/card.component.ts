@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
+import { AuthentificaionService } from '../services/authentificaion.service';
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
@@ -10,6 +11,7 @@ export class CardComponent implements OnInit {
 
   constructor(
     private router: Router,
+    public authService: AuthentificaionService
   ) {}
 
   event1() {

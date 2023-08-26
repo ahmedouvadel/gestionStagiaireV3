@@ -80,7 +80,7 @@
     <!-- Image pour les directions -->
     <img
       class="card-img-top"
-      src="../../assets/pngegg.png"    
+      src="../../assets/pngegg.png"
       alt="Card image cap"
     />
     <div class="card-body">
@@ -97,7 +97,7 @@
   </div>
 
   <!-- Carte pour afficher les informations des utilisateurs -->
-  <div class="card" style="width: 33rem">
+  <div *ngIf="authService.hasRole('ADMIN')" class="card" style="width: 33rem">
     <h5 class="card-title">
       Utilisateurs<span class="badge rounded-pill text-bg-primary ms-2"></span>
     </h5>
@@ -126,7 +126,7 @@
     <h5 class="card-title">
       Statut Echec <span class="badge rounded-pill text-bg-primary ms-2"></span>
     </h5>
-    <!-- Image pour les statuts d'échec 
+    <!-- Image pour les statuts d'échec
     <img
       class="card-img-top"
       src="../../assets/statuts.png"
@@ -134,7 +134,7 @@
     />
     <div class="card-body">
       <p>
-        <!-- Bouton pour voir les statuts d'échec 
+        <!-- Bouton pour voir les statuts d'échec
         <span
           class="btn btn-primary"
           (click)="event6()"
