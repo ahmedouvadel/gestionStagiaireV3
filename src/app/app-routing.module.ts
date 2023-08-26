@@ -17,20 +17,25 @@ import { AddUtilisateurComponent } from './add-utilisateur/add-utilisateur.compo
 import { StatusEchecComponent } from './status-echec/status-echec.component';
 import { DetailsComponent } from './details/details.component';
 import { HomeComponent } from './stagiaire/home.component';
+import { AuthenticationGuard } from './guards/authentication.guard';
+import { HeaderComponent } from './header/header.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
 const routes: Routes = [
 
   {path:'', redirectTo:'login' , pathMatch:'full' },
   { path: '', component: LoginComponent  },
-  {path: 'card', component: CardComponent},
+  {path: 'card', component: CardComponent , canActivate:[AuthenticationGuard]},
   {path: 'utilisateurs', component: DashboardComponent},
   {path: 'stagiaire', component: HomeComponent},
   {path:'departement', component: DepartementComponent},
   {path:'stagiaire/add', component: AddStagiaireComponent},
   {path:'departement/add', component: AddDepartementComponent},
+  {path:'header', component: HeaderComponent, canActivate:[AuthenticationGuard]},
+  {path:'sidenav', component: SidenavComponent, canActivate:[AuthenticationGuard]},
 
   {path:'departement/edit', component: EditDepartementComponent},
   {path:'stagiaire/edit', component: EditStagiaireComponent},
-  {path:'admin', component: AdminTemplateComponent },
+  {path:'admin', component: AdminTemplateComponent  },
   {path:'direction', component: DirectionComponent },
   {path:'service', component: ServiceComponent },
   {path:'direction/add', component: AddDirectionComponent },

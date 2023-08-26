@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Route, Router } from '@angular/router';
+import { AuthentificaionService } from '../services/authentificaion.service';
 
 @Component({
   selector: 'app-header',
@@ -13,6 +14,7 @@ export class HeaderComponent implements OnInit{
 
   constructor(
     private router : Router,
+    public authService : AuthentificaionService
   ) {}
  /** event Log Out */
   event() {

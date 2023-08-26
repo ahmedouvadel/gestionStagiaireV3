@@ -81,7 +81,8 @@ import { DleteDirectionComponent } from './dlete-direction/dlete-direction.compo
     EvoyerMailComponent,
     DeletePeriodeComponent,
     EditDirectionComponent,
-    DleteDirectionComponent
+    DleteDirectionComponent,
+
   ],
   imports: [
     BrowserAnimationsModule,
@@ -103,6 +104,7 @@ import { DleteDirectionComponent } from './dlete-direction/dlete-direction.compo
     ReactiveFormsModule,
     //BreadcrumbModule,
     MatDialogModule,
+
 
   ],
   providers: [],

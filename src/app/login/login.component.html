@@ -4,9 +4,11 @@
   {{ eroorMessage }}
 </div>
 <form [formGroup]="userFormGroup" (ngSubmit)="handleLogin()">
+  <br>
   <!-- nomd'utilisateur input -->
-  <div class="form-outline mb-4">
-    <img src="../../assets/picture.png" alt="ahmed">
+  <div  class="form-outline mb-4">
+    <img  *ngIf="eroorMessage" src="../../assets/picture.png" alt="alert">
+    <br>
     <h3>Login page</h3>
     <br>
     <label class="form-label" for="form2Example1"> Username :</label>

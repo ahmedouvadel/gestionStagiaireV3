@@ -54,7 +54,7 @@ export class AuthentificaionService {
   }
 
   public isAuthenticated() {
-    return this.authenticatedUser != undefined;
+    return this.authenticatedUser!=undefined;
   }
 
   public logout(): Observable<Boolean> {
