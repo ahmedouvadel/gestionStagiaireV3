@@ -18,7 +18,7 @@
       </div>
 
    <!-- Section pour ajoute un un stagiaire -->
-   <span class="link-primary" (click)="openAddStagiaireDialog()">
+   <span *ngIf="authService.hasRole('ADMIN')" class="link-primary" (click)="openAddStagiaireDialog()">
     <button class="add" style="background-color: rgba(146, 195, 238, 0.597); border-radius: 0.5rem;">
       Nouveau Stagiaire
     </button>
@@ -56,7 +56,7 @@
 
             <!-- Dans votre boucle *ngFor pour afficher la liste des stagiaires -->
 <td class="btns">
-  <a style="cursor: pointer;"  (click)="openUpdateStagiaireDialog()" >
+  <a  style="cursor: pointer;"  (click)="openUpdateStagiaireDialog()" >
     <mat-icon aria-hidden="false" aria-label="Modifier">edit</mat-icon>
   </a>
   <a style="cursor: pointer;" (click)="openDeleteConfirmationDialog(S.id)">

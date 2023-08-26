@@ -18,30 +18,26 @@ import { StatusEchecComponent } from './status-echec/status-echec.component';
 import { DetailsComponent } from './details/details.component';
 import { HomeComponent } from './stagiaire/home.component';
 import { AuthenticationGuard } from './guards/authentication.guard';
-import { HeaderComponent } from './header/header.component';
-import { SidenavComponent } from './sidenav/sidenav.component';
 const routes: Routes = [
 
   {path:'', redirectTo:'login' , pathMatch:'full' },
   { path: '', component: LoginComponent  },
   {path: 'card', component: CardComponent , canActivate:[AuthenticationGuard]},
-  {path: 'utilisateurs', component: DashboardComponent},
-  {path: 'stagiaire', component: HomeComponent},
-  {path:'departement', component: DepartementComponent},
-  {path:'stagiaire/add', component: AddStagiaireComponent},
-  {path:'departement/add', component: AddDepartementComponent},
-  {path:'header', component: HeaderComponent, canActivate:[AuthenticationGuard]},
-  {path:'sidenav', component: SidenavComponent, canActivate:[AuthenticationGuard]},
+  {path: 'utilisateurs', component: DashboardComponent, canActivate:[AuthenticationGuard]},
+  {path: 'stagiaire', component: HomeComponent, canActivate:[AuthenticationGuard]},
+  {path:'departement', component: DepartementComponent, canActivate:[AuthenticationGuard]},
+  {path:'stagiaire/add', component: AddStagiaireComponent , canActivate:[AuthenticationGuard]},
+  {path:'departement/add', component: AddDepartementComponent, canActivate:[AuthenticationGuard]},
 
-  {path:'departement/edit', component: EditDepartementComponent},
-  {path:'stagiaire/edit', component: EditStagiaireComponent},
-  {path:'admin', component: AdminTemplateComponent  },
-  {path:'direction', component: DirectionComponent },
-  {path:'service', component: ServiceComponent },
-  {path:'direction/add', component: AddDirectionComponent },
-  {path:'service/add', component: AddServiceComponent },
-  {path:'Utilisateur/add', component: AddUtilisateurComponent},
-  {path:'Status', component: StatusEchecComponent},
+  {path:'departement/edit', component: EditDepartementComponent , canActivate:[AuthenticationGuard]},
+  {path:'stagiaire/edit', component: EditStagiaireComponent, canActivate:[AuthenticationGuard]},
+  {path:'admin', component: AdminTemplateComponent , canActivate:[AuthenticationGuard]},
+  {path:'direction', component: DirectionComponent , canActivate:[AuthenticationGuard] },
+  {path:'service', component: ServiceComponent , canActivate:[AuthenticationGuard] },
+  {path:'direction/add', component: AddDirectionComponent , canActivate:[AuthenticationGuard]},
+  {path:'service/add', component: AddServiceComponent , canActivate:[AuthenticationGuard] },
+  {path:'Utilisateur/add', component: AddUtilisateurComponent , canActivate:[AuthenticationGuard]},
+  {path:'Status', component: StatusEchecComponent , canActivate:[AuthenticationGuard]},
 
 ];
 

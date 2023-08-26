@@ -47,6 +47,8 @@ import { EvoyerMailComponent } from './evoyer-mail/evoyer-mail.component';
 import { DeletePeriodeComponent } from './delete-periode/delete-periode.component';
 import { EditDirectionComponent } from './edit-direction/edit-direction.component';
 import { DleteDirectionComponent } from './dlete-direction/dlete-direction.component';
+import { AuthenticationGuard } from './guards/authentication.guard';
+import { AuthentificaionService } from './services/authentificaion.service';
 
 
 @NgModule({
@@ -82,6 +84,7 @@ import { DleteDirectionComponent } from './dlete-direction/dlete-direction.compo
     DeletePeriodeComponent,
     EditDirectionComponent,
     DleteDirectionComponent,
+
 
   ],
   imports: [

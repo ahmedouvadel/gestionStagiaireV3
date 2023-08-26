@@ -14,12 +14,12 @@ export class AuthentificaionService {
     this.users.push({ username: 'user1', password: 'anuser', roles: ['USER'] });
     this.users.push({ username: 'user2', password: 'anuser', roles: ['USER'] });
     this.users.push({
-      username: 'ahmedou',
+      username: 'Supervisor',
       password: '09132339Aa',
-      roles: ['ADMIN'],
+      roles: ['Ahmed'],
     });
     this.users.push({
-      username: 'ahmed',
+      username: 'Admin',
       password: '09132339',
       roles: ['ADMIN'],
     });
@@ -58,7 +58,7 @@ export class AuthentificaionService {
   }
 
   public logout(): Observable<Boolean> {
-    this.authenticatedUser != undefined;
+    this.authenticatedUser == undefined;
     localStorage.removeItem('authUser');
     return of(true);
   }

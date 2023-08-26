@@ -17,14 +17,21 @@ export class HeaderComponent implements OnInit{
     public authService : AuthentificaionService
   ) {}
  /** event Log Out */
-  event() {
+  /**event() {
     this.router.navigate(['/'])
-  }
+  } */
 
   ngOnInit(): void { }
     toggleSidebar(){
       this.toggleSidebarForMe.emit();
 
+    }
+    handelelogout() {
+      this.authService.logout().subscribe({
+        next :(data)=>{
+          this.router.navigateByUrl('/')
+        }
+      })
     }
 
 

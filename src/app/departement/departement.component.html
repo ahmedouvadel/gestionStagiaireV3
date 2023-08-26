@@ -29,7 +29,7 @@
       </select>
 
       <!-- Bouton pour ajouter un nouveau département -->
-      <span class="link-primary" (click)="openDepartementDialog()">
+      <span *ngIf="authService.hasRole('ADMIN')" class="link-primary" (click)="openDepartementDialog()">
         <button
           class="add"
 
@@ -72,10 +72,10 @@
 
             <!-- Dans votre boucle *ngFor pour afficher la liste des stagiaires -->
 <td class="btns">
-  <a style="cursor: pointer;" (click)="openUpdateStagiaireDialog()" >
+  <a *ngIf="authService.hasRole('ADMIN')" style="cursor: pointer;" (click)="openUpdateStagiaireDialog()" >
     <mat-icon aria-hidden="false" aria-label="Modifier">edit</mat-icon>
   </a>
-  <a (click)="openDeleteConfirmationDialog(D.id)">
+  <a *ngIf="authService.hasRole('ADMIN')" (click)="openDeleteConfirmationDialog(D.id)">
     <mat-icon aria-hidden="false" class="delete" aria-label="Supprimer">delete</mat-icon>
   </a>
 </td>

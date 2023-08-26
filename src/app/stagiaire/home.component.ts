@@ -4,6 +4,7 @@ import { AddStagiaireComponent } from '../add-stagiaire/add-stagiaire.component'
 import { MatDialog } from '@angular/material/dialog';
 import { DleteStagiaireComponent } from '../dlete-stagiaire/dlete-stagiaire.component';
 import { EditStagiaireComponent } from '../edit-stagiaire/edit-stagiaire.component';
+import { AuthentificaionService } from '../services/authentificaion.service';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +18,9 @@ export class HomeComponent implements OnInit {
   Stagiaire! : Array<any>
 
   constructor(
-    private router : Router,private dialog: MatDialog  ){}
+    private router : Router,
+    private dialog: MatDialog,
+    public authService: AuthentificaionService  ){}
 
   event(){
     this.router.navigate(['stagiaire/add'])

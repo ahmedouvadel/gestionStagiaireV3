@@ -14,28 +14,24 @@ import { AuthentificaionService } from '../services/authentificaion.service';
 @Injectable({
   providedIn: 'root',
 })
-export class AuthenticationGuard implements CanActivate {
 
+export class AuthenticationGuard implements CanActivate {
   constructor(
     private authservice: AuthentificaionService,
     private router: Router
   ) {}
+
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ):
-    | Observable<boolean | UrlTree>
-    | Promise<boolean | UrlTree>
-    | boolean
-    | UrlTree {
-    // return true;
+  ): boolean | UrlTree {
     let authenticated = this.authservice.isAuthenticated();
-    if (authenticated == false) {
-      this.router.navigateByUrl('');
-      return false;
+    if (!authenticated) {
+      return this.router.createUrlTree(['/']); // Redirect to home page
     } else {
       return true;
     }
   }
 }
+
 

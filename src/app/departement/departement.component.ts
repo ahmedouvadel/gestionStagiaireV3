@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddDepartementComponent } from '../add-departement/add-departement.component';
 import { DleteDepartementComponent } from '../dlete-departement/dlete-departement.component';
 import { EditDepartementComponent } from '../edit-departement/edit-departement.component';
+import { AuthentificaionService } from '../services/authentificaion.service';
 @Component({
   selector: 'app-departement',
   templateUrl: './departement.component.html',
@@ -13,7 +14,9 @@ export class DepartementComponent implements OnInit {
   Departement! : Array<any>
 
 constructor(
-  private router: Router,private dialog: MatDialog 
+  private router: Router,
+  private dialog: MatDialog,
+  public authService: AuthentificaionService
 ) {}
 
 
