@@ -46,9 +46,17 @@
           <td>{{ S.Service }}</td>
           <td>{{ S.nTelephone }}</td>
           <td>{{ S.Badge }}</td>
-          <td *ngIf="authService.hasRole('ADMIN')" class="btns">
-            <!-- Actions -->
-          </td>
+          
+          
+<td *ngIf="authService.hasRole('ADMIN')" class="btns">
+  <a  style="cursor: pointer;"  (click)="openUpdateStagiaireDialog()" >
+    <mat-icon aria-hidden="false" aria-label="Modifier">edit</mat-icon>
+  </a>
+  <a style="cursor: pointer;" (click)="openDeleteConfirmationDialog(S.id)">
+    <mat-icon aria-hidden="false" class="delete" aria-label="Supprimer">delete</mat-icon>
+  </a>
+</td>
+         
         </tr>
       </tbody>
     </table>

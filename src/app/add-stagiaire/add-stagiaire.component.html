@@ -3,7 +3,7 @@
   <div class="card-header">Ajouter un stagiaire</div>
 
   <div class="card-body">
-    <form>
+    <form [formGroup]="form" (ngSubmit)="submitForm()">
       <!-- Champ pour le nom -->
       <div class="form-group">
         <label for="nom">Nom</label>
@@ -12,6 +12,7 @@
           class="form-control"
           id="nom"
           placeholder="Le nom"
+          formControlName="nom"
           required
         />
       </div>
