@@ -2,7 +2,7 @@
   <!-- Carte pour la recherche de départements -->
   <div class="card">
     <!-- En-tête de la carte -->
-    <div class="card-header">Rechercher des Departement</div>
+    <div class="card-header">Rechercher des Départements</div>
 
     <!-- Corps de la carte -->
     <div class="card-body">
@@ -11,17 +11,20 @@
         <input
           type="text"
           class="form-control"
-          placeholder="taper un mot cle"
+          id="exampleInputCle1"
+          [(ngModel)]="searchTerm"
+          (input)="filterDepartments()"
+          placeholder="Taper un mot clé"
           aria-label="Recipient's username"
           aria-describedby="basic-addon2"
         />
       </div>
 
       <!-- Sélecteur pour filtrer les départements -->
-      <select class="form-select" aria-label="Default select example">
-        <option value="" disabled selected hidden>Rechercher Les Service</option>
+      <select class="form-select" aria-label="Default select example" [(ngModel)]="selectedService" (change)="filterDepartments()">
+        <option value="" disabled selected hidden>Rechercher Les Services</option>
         <option value="DTI">DTI</option>
-        <option value="DHCP">DHPC</option>
+        <option value="DHCP">DHCP</option>
         <option value="DAL">DAL</option>
         <option value="D700">D700</option>
         <option value="D600">D600</option>
@@ -30,12 +33,8 @@
 
       <!-- Bouton pour ajouter un nouveau département -->
       <span *ngIf="authService.hasRole('ADMIN')" class="link-primary" (click)="openDepartementDialog()">
-        <button
-          class="add"
-
-          style="background-color: rgba(146, 195, 238, 0.597);  border-radius: 0.5rem;"
-        >
-          Nouveau Departement
+        <button class="add" style="background-color: rgba(146, 195, 238, 0.597);  border-radius: 0.5rem;">
+          Nouveau Département
         </button>
       </span>
     </div>
@@ -44,7 +43,7 @@
   <!-- Carte pour la liste des départements -->
   <div class="card">
     <!-- En-tête de la carte -->
-    <div class="card-header">List des Departement</div>
+    <div class="card-header">Liste des Départements</div>
 
     <!-- Corps de la carte -->
     <div class="card-body">
@@ -52,44 +51,32 @@
       <table class="table">
         <thead class="thead-dark">
           <tr>
-            <th scope="col">id</th>
-            <th scope="col">Nom de la Departement</th>
+            <th scope="col">ID</th>
+            <th scope="col">Nom du Département</th>
             <th scope="col">Direction</th>
             <th *ngIf="authService.hasRole('ADMIN')" scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr
-          *ngFor="let D of Departement"
-          >
-            <td>{{D.id}}</td>
-
-            <td>{{D.Departement}}</td>
-            <td>{{D.Direction}}</td>
-
-
-
-
-            <!-- Dans votre boucle *ngFor pour afficher la liste des stagiaires -->
-<td class="btns">
-  <a *ngIf="authService.hasRole('ADMIN')" style="cursor: pointer;" (click)="openUpdateStagiaireDialog()" >
-    <mat-icon aria-hidden="false" aria-label="Modifier">edit</mat-icon>
-  </a>
-  <a *ngIf="authService.hasRole('ADMIN')" (click)="openDeleteConfirmationDialog(D.id)">
-    <mat-icon aria-hidden="false" class="delete" aria-label="Supprimer">delete</mat-icon>
-  </a>
-</td>
-
-      <!-- icon Update et Drop -->
-
+          <tr *ngFor="let D of filteredDepartments">
+            <td>{{ D.id }}</td>
+            <td>{{ D.Departement }}</td>
+            <td>{{ D.Direction }}</td>
+            <td class="btns">
+              <a *ngIf="authService.hasRole('ADMIN')" style="cursor: pointer;" (click)="openUpdateStagiaireDialog()">
+                <mat-icon aria-hidden="false" aria-label="Modifier">edit</mat-icon>
+              </a>
+              <a *ngIf="authService.hasRole('ADMIN')" (click)="openDeleteConfirmationDialog(D.id)">
+                <mat-icon aria-hidden="false" class="delete" aria-label="Supprimer">delete</mat-icon>
+              </a>
+            </td>
           </tr>
         </tbody>
       </table>
     </div>
-
   </div>
-  <!-- Message d'alerte s'il n'y a pas de stagiaire -->
-  <div class="alert alert-secondary" role="alert">
-    Dosen't exist any stagiaire pour l'instant
+
+  <div *ngIf="filteredDepartments.length === 0" class="alert alert-secondary" role="alert">
+    Aucun département trouvé pour le moment.
   </div>
 </body>
