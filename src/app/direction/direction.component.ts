@@ -50,15 +50,15 @@ export class DirectionComponent implements OnInit {
       }
     });
   }
-   openDeleteConfirmationDialog(stagiaireId: number) {
+   openDeleteConfirmationDialog(D : any) {
     const dialogRef = this.dialog.open(DleteDirectionComponent, {
       width: '300px',
-      data: stagiaireId
+      data: this.deleteStagiaire
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result === 'confirm') {
         // Appel à la méthode de suppression du stagiaire
-        this.deleteStagiaire(stagiaireId);
+        this.deleteStagiaire(D);
       }
     });
   }
