@@ -11,6 +11,10 @@
         <input
           type="text"
           class="form-control"
+          id="exampleInputCle1"
+
+          [(ngModel)]="searchTerm"
+          (input)="filteredDepartement()"
           placeholder="taper un mot cle"
           aria-label="Recipient's username"
           aria-describedby="basic-addon2"
@@ -60,8 +64,9 @@
         </thead>
         <tbody>
           <tr
-          *ngFor="let D of Departement"
-          >
+         *ngFor="let D of filteredDepartements">
+          
+         
             <td>{{D.id}}</td>
 
             <td>{{D.Departement}}</td>
@@ -88,8 +93,11 @@
     </div>
 
   </div>
-  <!-- Message d'alerte s'il n'y a pas de stagiaire -->
-  <div class="alert alert-secondary" role="alert">
-    Dosen't exist any stagiaire pour l'instant
-  </div>
+ 
 </body>
+
+
+
+<div *ngIf="filteredDepartement.length === 0" class="alert alert-secondary" role="alert">
+  Aucun stagiaire trouvé pour le moment.
+</div>

@@ -11,8 +11,9 @@ import { AuthentificaionService } from '../services/authentificaion.service';
   styleUrls: ['./departement.component.css']
 })
 export class DepartementComponent implements OnInit {
-  Departement! : Array<any>
-
+  Departements! : Array<any>
+  searchTerm: string = '';
+  filteredDepartements: any[] = [];
 constructor(
   private router: Router,
   private dialog: MatDialog,
@@ -23,7 +24,7 @@ constructor(
 
 ngOnInit(): void {
 
-  this.Departement =[
+  this.Departements =[
     {id: 1, Departement:"DTI",Direction :"gg" },
     {id: 2, Departement:"DTI",Direction :"k" },
 
@@ -32,8 +33,16 @@ ngOnInit(): void {
     {id: 4, Departement:"DTI",Direction :"aa" },
 
   ]
-
+  this.filteredDepartements = this.Departements;
 }
+
+filteredDepartement(): void {
+  this.filteredDepartements = this.Departements.filter(departements =>
+    departements.Departements.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+    departements.Direction.toLowerCase().includes(this.searchTerm.toLowerCase())
+  );
+}
+
 openDepartementDialog() {
   // Ouvrir la boîte de dialogue pour ajouter un nouveau depatement
   const dialogRef = this.dialog.open(AddDepartementComponent, {

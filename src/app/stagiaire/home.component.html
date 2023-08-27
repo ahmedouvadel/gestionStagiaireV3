@@ -1,24 +1,21 @@
+<!-- stagiaire.component.html -->
 
-<!-- Stagiaire Component-->
-<body>
-  <div class="card">
-    <div class="card-header">Rechercher des stagiaires</div>
-
-    <div class="card-body">
-      <div class="form-group">
-
-        <!-- input pour cherche d'un stagiaire -->
-        <input
-          type="text"
-          class="form-control"
-          id="exampleInputCle1"
-          aria-describedby=""
-          placeholder="taper un mots-clés"
-        />
-      </div>
-
-   <!-- Section pour ajoute un un stagiaire -->
-   <span *ngIf="authService.hasRole('ADMIN')" class="link-primary" (click)="openAddStagiaireDialog()">
+<div class="card">
+  <div class="card-header">Rechercher des stagiaires</div>
+  <div class="card-body">
+    <div class="form-group">
+      <input
+        type="text"
+        class="form-control"
+        id="exampleInputCle1"
+        [(ngModel)]="searchTerm"
+        (input)="filterStagiaires()"
+        aria-describedby=""
+        placeholder="Taper un mot-clé"
+      />
+    </div>
+  <!-- Section pour ajoute un un stagiaire -->
+  <span *ngIf="authService.hasRole('ADMIN')" class="link-primary" (click)="openAddStagiaireDialog()">
     <button class="add" style="background-color: rgba(146, 195, 238, 0.597); border-radius: 0.5rem;">
       Nouveau Stagiaire
     </button>
@@ -26,55 +23,38 @@
     </div>
   </div>
   <!-- Section d'afficher un stagiaire-->
-  <div class="card" >
-    <div class="card-header">List des stagiaires</div>
-
-    <div class="card-body">
-      <table class="table">
-        <thead class="thead-dark">
-          <tr>
-            <th scope="col">id</th>
-            <th scope="col">nom</th>
-            <th scope="col">prenom</th>
-            <th scope="col">Service</th>
-            <th scope="col">N°Telephone</th>
-            <th scope="col" >N°Badge</th>
-            <th *ngIf="authService.hasRole('ADMIN')" scope="col" >Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr
-          *ngFor="let S of Stagiaire"
-          >
-            <td>{{S.id}}</td>
-            <td>{{S.nom}}</td>
-            <td>{{S.prenom}}</td>
-            <td>{{S.Service}}</td>
-            <td>{{S.nTelephone}}</td>
-            <td>{{S.Badge}}</td>
-
-
-            <!-- Dans votre boucle *ngFor pour afficher la liste des stagiaires -->
-<td *ngIf="authService.hasRole('ADMIN')" class="btns">
-  <a  style="cursor: pointer;"  (click)="openUpdateStagiaireDialog()" >
-    <mat-icon aria-hidden="false" aria-label="Modifier">edit</mat-icon>
-  </a>
-  <a style="cursor: pointer;" (click)="openDeleteConfirmationDialog(S.id)">
-    <mat-icon aria-hidden="false" class="delete" aria-label="Supprimer">delete</mat-icon>
-  </a>
-</td>
-
-      <!-- icon Update et Drop -->
-
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
+<div class="card">
+  <div class="card-header">Liste des stagiaires</div>
+  <div class="card-body">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">id</th>
+          <th scope="col">nom</th>
+          <th scope="col">prenom</th>
+          <th scope="col">Service</th>
+          <th scope="col">N°Telephone</th>
+          <th scope="col">N°Badge</th>
+          <th *ngIf="authService.hasRole('ADMIN')" scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let S of filteredStagiaires">
+          <td>{{ S.id }}</td>
+          <td>{{ S.nom }}</td>
+          <td>{{ S.prenom }}</td>
+          <td>{{ S.Service }}</td>
+          <td>{{ S.nTelephone }}</td>
+          <td>{{ S.Badge }}</td>
+          <td *ngIf="authService.hasRole('ADMIN')" class="btns">
+            <!-- Actions -->
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
+</div>
 
-     <!-- Cas Ou Any Service Exist  -->
-  <div  class="alert alert-secondary" role="alert">
-    Dosen't exist any stagiaire pour l'instant
-  </div>
-</body>
+<div *ngIf="filteredStagiaires.length === 0" class="alert alert-secondary" role="alert">
+  Aucun stagiaire trouvé pour le moment.
+</div>

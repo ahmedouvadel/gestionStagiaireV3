@@ -1,7 +1,6 @@
-import { Component, OnInit  } from '@angular/core';
-import { Route, Router } from '@angular/router';
-import { AddStagiaireComponent } from '../add-stagiaire/add-stagiaire.component'; // Remplacez par le chemin de votre boîte de dialogue
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { AddStagiaireComponent } from '../add-stagiaire/add-stagiaire.component'; // Remplacez par le chemin de votre boîte de dialogue
 import { DleteStagiaireComponent } from '../dlete-stagiaire/dlete-stagiaire.component';
 import { EditStagiaireComponent } from '../edit-stagiaire/edit-stagiaire.component';
 import { AuthentificaionService } from '../services/authentificaion.service';
@@ -13,21 +12,16 @@ import { AuthentificaionService } from '../services/authentificaion.service';
 })
 export class HomeComponent implements OnInit {
 
-  //Pour Liste Les Stagiaire
-
-  Stagiaire! : Array<any>
+  Stagiaire: any[] = []; // Votre liste de stagiaires
+  searchTerm: string = '';
+  filteredStagiaires: any[] = [];
 
   constructor(
-    private router : Router,
     private dialog: MatDialog,
-    public authService: AuthentificaionService  ){}
-
-  event(){
-    this.router.navigate(['stagiaire/add'])
-  }
+    public authService: AuthentificaionService
+  ) {}
 
   ngOnInit(): void {
-
     this.Stagiaire =[
       {id: 1, nom:"Ahmedou", prenom:"Vadel", Service:"Genie Logiciel",nTelephone: 44223507, Badge:1213 },
       {id: 2, nom:"Ftimetou", prenom:"Meyn", Service:"Data ",nTelephone: 22566478, Badge:1415 },
@@ -36,11 +30,17 @@ export class HomeComponent implements OnInit {
       {id: 5, nom:"Mohamed", prenom:"Mahfoud", Service:"D600",nTelephone: 26547895, Badge:1785 }
     ]
 
+    this.filteredStagiaires = this.Stagiaire;
   }
 
+  filterStagiaires(): void {
+    this.filteredStagiaires = this.Stagiaire.filter(stagiaire =>
+      stagiaire.nom.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+      stagiaire.prenom.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
+  }
 
   openAddStagiaireDialog() {
-    // Ouvrir la boîte de dialogue pour ajouter un nouveau stagiaire
     const dialogRef = this.dialog.open(AddStagiaireComponent, {
       data: { action: 'Ajouter' },
     });
@@ -51,14 +51,12 @@ export class HomeComponent implements OnInit {
       }
     });
   }
+
   openDeleteConfirmationDialog(stagiaireId: number) {
     const dialogRef = this.dialog.open(DleteStagiaireComponent, {
       width: '300px',
       data: stagiaireId
     });
-
-
-
 
     dialogRef.afterClosed().subscribe(result => {
       if (result === 'confirm') {
@@ -71,8 +69,8 @@ export class HomeComponent implements OnInit {
   deleteStagiaire(stagiaireId: number) {
     // Implémentez ici la logique de suppression du stagiaire
   }
+
   openUpdateStagiaireDialog() {
-    // Ouvrir la boîte de dialogue pour ajouter un nouveau stagiaire
     const dialogRef = this.dialog.open(EditStagiaireComponent, {
       data: { action: 'Ajouter' },
     });
@@ -84,8 +82,3 @@ export class HomeComponent implements OnInit {
     });
   }
 }
-
-function DeleteStagiaire(S: any, any: any) {
-  throw new Error('Function not implemented.');
-}
-
