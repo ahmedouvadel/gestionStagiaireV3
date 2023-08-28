@@ -22,7 +22,7 @@
 
       <!-- Sélecteur pour filtrer les départements -->
       <select class="form-select" aria-label="Default select example" [(ngModel)]="selectedService" (change)="filterDepartments()">
-        <option value="" disabled selected hidden>Rechercher Les Services</option>
+        <option value="" disabled selected hidden>Rechercher Les Directions</option>
         <option value="DTI">DTI</option>
         <option value="DHCP">DHCP</option>
         <option value="DAL">DAL</option>
@@ -53,20 +53,19 @@
           <tr>
             <th scope="col">ID</th>
             <th scope="col">Nom du Département</th>
-            <th scope="col">Direction</th>
             <th *ngIf="authService.hasRole('ADMIN')" scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let D of filteredDepartments">
             <td>{{ D.id }}</td>
-            <td>{{ D.Departement }}</td>
-            <td>{{ D.Direction }}</td>
-            <td class="btns">
-              <a *ngIf="authService.hasRole('ADMIN')" style="cursor: pointer;" (click)="openUpdateStagiaireDialog()">
+            <td>{{ D.nomdepartement }}</td>
+
+            <td *ngIf="authService.hasRole('ADMIN')" class="btns">
+              <a  style="cursor: pointer;"  (click)="openUpdateStagiaireDialog()" >
                 <mat-icon aria-hidden="false" aria-label="Modifier">edit</mat-icon>
               </a>
-              <a *ngIf="authService.hasRole('ADMIN')" (click)="openDeleteConfirmationDialog(D.id)">
+              <a style="cursor: pointer;" (click)="openDeleteConfirmationDialog(D)">
                 <mat-icon aria-hidden="false" class="delete" aria-label="Supprimer">delete</mat-icon>
               </a>
             </td>

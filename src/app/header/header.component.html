@@ -16,7 +16,7 @@
             [matMenuTriggerFor]="menu"
             class="user mt-2 d-flex align-items-center"
           >
-            <img  src="../../assets/userprofile.png" alt="" class="user-image mr-1 p-2" />
+            <img *ngIf="authService.hasRole('ADMIN')" src="../../assets/userprofile.png" alt="" class="user-image mr-1 p-2" />
 
             {{ authService.authenticatedUser.username }}
             <mat-icon class="user-image-icon ml-1"

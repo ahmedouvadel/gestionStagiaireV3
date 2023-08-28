@@ -4,6 +4,8 @@ import { AddStagiaireComponent } from '../add-stagiaire/add-stagiaire.component'
 import { DleteStagiaireComponent } from '../dlete-stagiaire/dlete-stagiaire.component';
 import { EditStagiaireComponent } from '../edit-stagiaire/edit-stagiaire.component';
 import { AuthentificaionService } from '../services/authentificaion.service';
+import { StagiaireService } from '../services/stagiaire/stagiaire.service';
+import { StagiaireModel } from '../model/stagiaire.model';
 
 @Component({
   selector: 'app-home',
@@ -12,31 +14,34 @@ import { AuthentificaionService } from '../services/authentificaion.service';
 })
 export class HomeComponent implements OnInit {
 
-  Stagiaire: any[] = []; // Votre liste de stagiaires
+  stagiaire: StagiaireModel[] = []; // Votre liste de stagiaires
+  ErrorMesssage! : string
   searchTerm: string = '';
-  filteredStagiaires: any[] = [];
+  filteredStagiaires: StagiaireModel[] = [];
 
   constructor(
     private dialog: MatDialog,
-    public authService: AuthentificaionService
+    public authService: AuthentificaionService,
+    private stagiaireService: StagiaireService
   ) {}
 
   ngOnInit(): void {
-    this.Stagiaire =[
-      {id: 1, nom:"Ahmedou", prenom:"Vadel", Service:"Genie Logiciel",nTelephone: 44223507, Badge:1213 },
-      {id: 2, nom:"Ftimetou", prenom:"Meyn", Service:"Data ",nTelephone: 22566478, Badge:1415 },
-      {id: 3, nom:"Mohamed", prenom:"Sidine", Service:"DTI",nTelephone: 44699878, Badge:1236 },
-      {id: 4, nom:"Abdallahi", prenom:"Mohamedou", Service:"D700",nTelephone: 36547856, Badge:1456 },
-      {id: 5, nom:"Mohamed", prenom:"Mahfoud", Service:"D600",nTelephone: 26547895, Badge:1785 }
-    ]
+    this.stagiaireService.getAllStagiaire().subscribe({
+      next : (data) => {
+        this.stagiaire=data
+      },
+      error : (err) => {
+        this.ErrorMesssage=err
+      }
+    })
 
-    this.filteredStagiaires = this.Stagiaire;
+    this.filteredStagiaires = this.stagiaire;
   }
-
+  // Pour filtre les Stagiaire
   filterStagiaires(): void {
-    this.filteredStagiaires = this.Stagiaire.filter(stagiaire =>
-      stagiaire.nom.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
-      stagiaire.prenom.toLowerCase().includes(this.searchTerm.toLowerCase())
+    this.filteredStagiaires = this.stagiaire.filter(stagiaire =>
+      stagiaire.firstname.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+      stagiaire.lastname.toLowerCase().includes(this.searchTerm.toLowerCase())
     );
   }
 

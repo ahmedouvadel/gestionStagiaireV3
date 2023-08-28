@@ -5,6 +5,9 @@ import { AddDepartementComponent } from '../add-departement/add-departement.comp
 import { DleteDepartementComponent } from '../dlete-departement/dlete-departement.component';
 import { EditDepartementComponent } from '../edit-departement/edit-departement.component';
 import { AuthentificaionService } from '../services/authentificaion.service';
+import { findIndex } from 'rxjs';
+import { DepartementService } from '../services/departement/departement.service';
+import { DepartementModel } from '../model/departement.model';
 
 @Component({
   selector: 'app-departement',
@@ -12,32 +15,37 @@ import { AuthentificaionService } from '../services/authentificaion.service';
   styleUrls: ['./departement.component.css']
 })
 export class DepartementComponent implements OnInit {
-  Departements!: Array<any>;
+  Departement: DepartementModel[]= [];
+  ErrorMessage! : string
   searchTerm: string = '';
   selectedService: string = '';
-  filteredDepartments: any[] = [];
+  filteredDepartments: DepartementModel[] = [];
 
   constructor(
     private router: Router,
     private dialog: MatDialog,
-    public authService: AuthentificaionService
+    public authService: AuthentificaionService,
+    private DeptService : DepartementService
   ) {}
 
   ngOnInit(): void {
-    this.Departements = [
-      { id: 1, Departement: 'DTI', Direction: 'gg' },
-      { id: 2, Departement: 'DTI', Direction: 'k' },
-      { id: 3, Departement: 'DTI', Direction: 'aa' },
-      { id: 4, Departement: 'DTI', Direction: 'aa' },
-    ];
+   //basculation vers la programmetion asynchrones
+    this.DeptService.getAllDepartement().subscribe({
+      next : (data) => {
+        this.Departement=data
+      },
+      error : (err) => {
+        this.ErrorMessage=err;
+      }
+    });
     this.filterDepartments(); // Initial filter
   }
 
   filterDepartments(): void {
-    this.filteredDepartments = this.Departements.filter(department =>
-      (department.Departement.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
-      department.Direction.toLowerCase().includes(this.searchTerm.toLowerCase())) &&
-      (this.selectedService === '' || department.Departement === this.selectedService)
+    this.filteredDepartments = this.Departement.filter(department =>
+      (department.nomdepartement.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+      department.nomdepartement.toLowerCase().includes(this.searchTerm.toLowerCase())) &&
+      (this.selectedService === '' || department.nomdepartement === this.selectedService)
     );
   }
 
@@ -54,23 +62,31 @@ export class DepartementComponent implements OnInit {
     });
   }
 
-  openDeleteConfirmationDialog(stagiaireId: number) {
+  openDeleteConfirmationDialog(D: any) {
     const dialogRef = this.dialog.open(DleteDepartementComponent, {
       width: '300px',
-      data: stagiaireId
+      data: D // Pass the entire department object
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result === 'confirm') {
-        // Appel à la méthode de suppression du stagiaire
-        this.deleteStagiaire(stagiaireId);
+        this.deleteDepartement(D.id); // Call the deleteDepartement method with the appropriate department ID
       }
     });
   }
 
-  deleteStagiaire(stagiaireId: number) {
-    // Implémentez ici la logique de suppression du stagiaire
+
+
+
+
+  deleteDepartement(departmentId: number) {
+    const index = this.Departement.findIndex(dep => dep.id === departmentId);
+    if (index !== -1) {
+      this.Departement.splice(index, 1); // Remove the specified department from the array
+    }
   }
+
+
 
   openUpdateStagiaireDialog() {
     // Ouvrir la boîte de dialogue pour ajouter un nouveau stagiaire

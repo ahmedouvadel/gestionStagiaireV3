@@ -1,4 +1,5 @@
 export interface ServiceModel {
-  id:number
-  nomservice: String,
+  id:number;
+  nomservice: String;
+
 }

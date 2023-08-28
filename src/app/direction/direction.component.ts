@@ -6,6 +6,8 @@ import { AddDirectionComponent } from '../add-direction/add-direction.component'
 import { DleteDirectionComponent } from '../dlete-direction/dlete-direction.component';
 import { EditDirectionComponent } from '../edit-direction/edit-direction.component';
 import { AuthentificaionService } from '../services/authentificaion.service';
+import { DirectionService } from '../services/direction/direction.service';
+import { DirectionModel } from '../model/direction.model';
 
 @Component({
   selector: 'app-direction',
@@ -13,11 +15,13 @@ import { AuthentificaionService } from '../services/authentificaion.service';
   styleUrls: ['./direction.component.css']
 })
 export class DirectionComponent implements OnInit {
- Direction!: Array<any>
+ Direction: DirectionModel[]=[]
+ ErrorMessage! : string
   constructor(
     private router : Router,
     private dialog : MatDialog,
-    public authService: AuthentificaionService
+    public authService: AuthentificaionService,
+    private DirDirection: DirectionService
   ) {}
 
   /**event(){
@@ -25,15 +29,14 @@ export class DirectionComponent implements OnInit {
   } */
 
   ngOnInit(): void {
-    this.Direction =[
-      {id: 1, Direction:"DTI" },
-      {id: 2, Direction:"DSI"},
-
-      {id: 3, Direction:"D700"},
-
-      {id: 4, Direction:"D600" },
-
-    ]
+   this.DirDirection.getAllDirection().subscribe ({
+    next : (data) => {
+      this.Direction=data
+    },
+    error : (err) => {
+      this.ErrorMessage=err
+    }
+   });
 
   }
 

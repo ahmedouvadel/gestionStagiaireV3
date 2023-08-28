@@ -5,6 +5,8 @@ import { DleteServiceComponent } from '../dlete-service/dlete-service.component'
 import { MatDialog } from '@angular/material/dialog';
 import { EditServiceComponent } from '../edit-service/edit-service.component';
 import { AuthentificaionService } from '../services/authentificaion.service';
+import { ServiceService } from '../services/service/service.service';
+import { ServiceModel } from '../model/service.model';
 
 @Component({
   selector: 'app-service',
@@ -14,12 +16,14 @@ import { AuthentificaionService } from '../services/authentificaion.service';
 export class ServiceComponent implements OnInit {
 
   // pour Liste les Services
-  Service! : Array<any>
+  service : ServiceModel[]= [];
+  ErrorMessage! : string
 
   constructor(
     private router : Router,
     private dialog: MatDialog,
-    public authService: AuthentificaionService
+    public authService: AuthentificaionService,
+    private SrvService: ServiceService
   ) {}
   /** event pour ajoute un service */
 
@@ -28,14 +32,14 @@ export class ServiceComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-    this.Service = [
-      {id : 1, nomService:"Genie Logiciel", nomDepartement:"DSI"},
-      {id : 2, nomService:"Reseau informatique", nomDepartement:"DSI"},
-      {id : 3, nomService:"SAP", nomDepartement:"DSI"},
-      {id : 4, nomService:"D610", nomDepartement:"D600"},
-      {id : 5, nomService:"D720", nomDepartement:"D700"},
-    ]
+    this.SrvService.getAllService().subscribe({
+      next : (data)=> {
+        this.service=data;
+      },
+      error : (err) => {
+        this.ErrorMessage=err
+      }
+    })
 
   }
   openAddSeviceDialog() {

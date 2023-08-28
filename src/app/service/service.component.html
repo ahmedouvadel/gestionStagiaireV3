@@ -60,10 +60,9 @@
         </thead>
         <tbody>
           <!-- Ligne pour chaque service (utilisation de *ngFor) -->
-          <tr *ngFor="let S of Service">
+          <tr *ngFor="let S of service">
             <th>{{S.id}}</th>
-            <td>{{S.nomService}}</td>
-            <td>{{S.nomDepartement}}</td>
+            <td>{{S.nomservice}}</td>
 
             <!-- Dans votre boucle *ngFor pour afficher la liste des stagiaires -->
 <td *ngIf="authService.hasRole('ADMIN')" class="btns">
