@@ -23,4 +23,11 @@ export class DepartementService {
   public getAllDepartement() : Observable<DepartementModel[]> {
     return of(this.Departement);
   }
+
+  //Delete Departement
+  public deleteDepartement(id : number) : Observable<Boolean> {
+    this.Departement= this.Departement.filter(p=>p.id!=id);
+    return of(true)
+
+   }
 }

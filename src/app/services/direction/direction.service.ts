@@ -24,4 +24,11 @@ export class DirectionService {
   public getAllDirection() : Observable<DirectionModel[]> {
     return of(this.Direction)
   }
+
+  //Delete Direction
+  public deleteDirection(id : number) : Observable<Boolean> {
+    this.Direction= this.Direction.filter(p=>p.id!=id);
+    return of(true)
+
+   }
 }

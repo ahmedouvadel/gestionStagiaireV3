@@ -14,11 +14,18 @@ export class ServiceService {
       {id : 2, nomservice:"Reseau informatique"},
       {id : 3, nomservice:"SAP" },
       {id : 4, nomservice:"D610"},
-      {id : 5, nomservice:"D720"}, 
+      {id : 5, nomservice:"D720"},
     ]
   }
 
   getAllService() : Observable<ServiceModel[]> {
     return of(this.service);
   }
+
+  //Delete Service
+  public deleteService(id : number) : Observable<Boolean> {
+    this.service= this.service.filter(p=>p.id!=id);
+    return of(true)
+
+   }
 }

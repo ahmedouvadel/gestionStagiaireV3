@@ -54,10 +54,10 @@ export class ServiceComponent implements OnInit {
       }
     });
   }
-  openDeleteConfirmationDialog(stagiaireId: number) {
+  openDeleteConfirmationDialog(S: ServiceModel) {
     const dialogRef = this.dialog.open(DleteServiceComponent, {
       width: '300px',
-      data: stagiaireId
+      data: this.service
     });
 
 
@@ -66,14 +66,17 @@ export class ServiceComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result === 'confirm') {
         // Appel à la méthode de suppression du stagiaire
-        this.deleteStagiaire(stagiaireId);
+        this.SrvService.deleteService(S.id).subscribe({
+          next : (data) => {
+            let index = this.service.indexOf(S);
+            this.service.splice(index, 1);
+          }
+        })
       }
     });
   }
 
-  deleteStagiaire(stagiaireId: number) {
-    // Implémentez ici la logique de suppression du stagiaire
-  }
+
   openUpdateStagiaireDialog() {
     // Ouvrir la boîte de dialogue pour ajouter un nouveau stagiaire
     const dialogRef = this.dialog.open(EditServiceComponent, {

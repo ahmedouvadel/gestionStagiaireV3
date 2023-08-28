@@ -35,8 +35,24 @@ export class HomeComponent implements OnInit {
       }
     })
 
+    this.getAllStagiaire;
+
     this.filteredStagiaires = this.stagiaire;
   }
+
+  //Methode GetAllStagiaire
+
+  getAllStagiaire() {
+    this.stagiaireService.getAllStagiaire().subscribe({
+      next : (data) => {
+        this.stagiaire=data
+      },
+      error : (err) => {
+        this.ErrorMesssage=err
+      }
+    })
+  }
+
   // Pour filtre les Stagiaire
   filterStagiaires(): void {
     this.filteredStagiaires = this.stagiaire.filter(stagiaire =>
@@ -57,23 +73,26 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  openDeleteConfirmationDialog(stagiaireId: number) {
+  openDeleteConfirmationDialog(S: StagiaireModel) {
     const dialogRef = this.dialog.open(DleteStagiaireComponent, {
       width: '300px',
-      data: stagiaireId
+      data: this.stagiaire
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result === 'confirm') {
         // Appel à la méthode de suppression du stagiaire
-        this.deleteStagiaire(stagiaireId);
+        this.stagiaireService.deleteStagiaire(S.id).subscribe({
+          next : (data) => {
+            let index = this.stagiaire.indexOf(S);
+            this.stagiaire.splice(index, 1);
+          }
+        })
       }
     });
   }
 
-  deleteStagiaire(stagiaireId: number) {
-    // Implémentez ici la logique de suppression du stagiaire
-  }
+
 
   openUpdateStagiaireDialog() {
     const dialogRef = this.dialog.open(EditStagiaireComponent, {

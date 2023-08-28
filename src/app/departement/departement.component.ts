@@ -62,28 +62,22 @@ export class DepartementComponent implements OnInit {
     });
   }
 
-  openDeleteConfirmationDialog(D: any) {
+  openDeleteConfirmationDialog(D : any) {
     const dialogRef = this.dialog.open(DleteDepartementComponent, {
       width: '300px',
-      data: D // Pass the entire department object
+      data: this.Departement
     });
-
     dialogRef.afterClosed().subscribe(result => {
       if (result === 'confirm') {
-        this.deleteDepartement(D.id); // Call the deleteDepartement method with the appropriate department ID
+        // Appel à la méthode de suppression du Departement
+        this.DeptService.deleteDepartement(D.id).subscribe({
+          next : (data) => {
+            let index = this.Departement.indexOf(D);
+            this.Departement.splice(index, 1);
+          }
+        })
       }
     });
-  }
-
-
-
-
-
-  deleteDepartement(departmentId: number) {
-    const index = this.Departement.findIndex(dep => dep.id === departmentId);
-    if (index !== -1) {
-      this.Departement.splice(index, 1); // Remove the specified department from the array
-    }
   }
 
 

@@ -20,4 +20,10 @@ export class StagiaireService {
    getAllStagiaire() : Observable<StagiaireModel[]> {
     return of(this.stagiaire);
    }
+  //Delete Stagiaire
+   public deleteStagiaire(id : number) : Observable<Boolean> {
+    this.stagiaire= this.stagiaire.filter(p=>p.id!=id);
+    return of(true)
+
+   }
 }

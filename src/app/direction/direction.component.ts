@@ -56,19 +56,22 @@ export class DirectionComponent implements OnInit {
    openDeleteConfirmationDialog(D : any) {
     const dialogRef = this.dialog.open(DleteDirectionComponent, {
       width: '300px',
-      data: this.deleteStagiaire
+      data: this.Direction
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result === 'confirm') {
         // Appel à la méthode de suppression du stagiaire
-        this.deleteStagiaire(D);
+        this.DirDirection.deleteDirection(D.id).subscribe({
+          next : (data) => {
+            let index = this.Direction.indexOf(D);
+            this.Direction.splice(index, 1);
+          }
+        })
       }
     });
   }
 
-  deleteStagiaire(stagiaireId: number) {
-    // Implémentez ici la logique de suppression du stagiaire
-  }
+
   openUpdateStagiaireDialog() {
     // Ouvrir la boîte de dialogue pour ajouter un nouveau stagiaire
     const dialogRef = this.dialog.open(EditDirectionComponent, {

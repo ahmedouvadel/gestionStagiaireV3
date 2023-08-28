@@ -1,5 +1,5 @@
-import { Component, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component,  } from '@angular/core';
+import { MatDialogRef,  } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-dlete-departement',
@@ -7,9 +7,9 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./dlete-departement.component.css']
 })
 export class DleteDepartementComponent {
-  constructor(
+    constructor(
     public dialogRef: MatDialogRef<DleteDepartementComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
+
   ) {}
 
   onConfirm(): void {
@@ -20,5 +20,6 @@ export class DleteDepartementComponent {
     this.dialogRef.close('cancel');
   }
 }
+
 
 
