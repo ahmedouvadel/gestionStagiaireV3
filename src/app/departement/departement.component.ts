@@ -33,43 +33,44 @@ export class DepartementComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-   //basculation vers la programmetion asynchrones
+    // Basculation vers la programmation asynchrone
     this.DeptService.getAllDepartement().subscribe({
-      next : (data) => {
-        this.Departement=data
+      next: (data) => {
+        this.Departement = data;
       },
-      error : (err) => {
-        this.ErrorMessage=err;
+      error: (err) => {
+        this.ErrorMessage = err;
       }
     });
-    this.filterDepartments(); // Initial filter
 
-    //Pour Lister Tous les Direction
+    //this.filterDepartments(); // Initial filter
+    this.filteredDepartments = this.Departement;
+
+    // Pour lister tous les Directions
     this.DirDirection.getAllDirection().subscribe({
-    next : (data)=> {
-      this.direction=data
-    },
-    error: (err)=> {
-      this.ErrorMessage=err
-    }
-   })
+      next: (data) => {
+        this.direction = data;
+      },
+      error: (err) => {
+        this.ErrorMessage = err;
+      }
+    });
 
-   this.getAllDepartement;
+    this.getAllDepartement; // Corrected line
+
 
   }
 
-  //GettAllDepartement
-  getAllDepartement(){
+   getAllDepartement(){
     this.DeptService.getAllDepartement().subscribe({
       next : (data)=> {
         this.Departement=data
       },
-      error : (err)=> {
+      error :(err)=> {
         this.ErrorMessage=err
       }
-
     })
-   }
+  }
 
   filterDepartments(): void {
     this.filteredDepartments = this.Departement.filter(department =>
