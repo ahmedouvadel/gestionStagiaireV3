@@ -15,29 +15,33 @@ import { AuthentificaionService } from '../services/authentificaion.service';
 export class DashboardComponent implements OnInit {
 
 
-  User! : Array<User>
-  ErrorMessage!:Error
+  users: User[] = [];
+  searchTerm: string = '';
+  filteredUsers: User[] = [];
 
   constructor(
     private router : Router,
     private dialog: MatDialog,
     private UserService: AuthentificaionService
     ){}
+
+
     ngOnInit(): void {
+      this.filterUsers(); // Initial filter
 
-      //Pour Lister Les Utilisateurs
-      this.UserService.getAllUsers().subscribe({
-        next: (data)=> {
-          this.User=data
+      // Retrieve user data
+      this.UserService.getAllUsers().subscribe(
+        (data) => {
+          this.users = data;
+          this.filterUsers(); // Filter users after loading data
         },
-        error : (err)=> {
-          this.ErrorMessage=err
+        (error) => {
+          console.error(error);
         }
-      });
-
-
-
+      );
     }
+
+
   openAddUserDialog() {
     // Ouvrir la boîte de dialogue pour ajouter un nouveau stagiaire
     const dialogRef = this.dialog.open(AddUtilisateurComponent, {
@@ -81,6 +85,14 @@ export class DashboardComponent implements OnInit {
         // Effectuer l'ajout ici avec le résultat
       }
     });
+  }
+
+  filterUsers(): void {
+    this.filteredUsers = this.users.filter(
+      (user) =>
+        user.username.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+        user.roles.join(' ').toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
   }
 }
 

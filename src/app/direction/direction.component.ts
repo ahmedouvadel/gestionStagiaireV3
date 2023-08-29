@@ -17,6 +17,9 @@ import { DirectionModel } from '../model/direction.model';
 export class DirectionComponent implements OnInit {
  direction: DirectionModel[]=[]
  ErrorMessage! : string
+ searchTerm: string = '';
+ selectedDirection: string = '';
+ filteredDirection: DirectionModel[] = [];
   constructor(
     private router : Router,
     private dialog : MatDialog,
@@ -29,16 +32,27 @@ export class DirectionComponent implements OnInit {
   } */
 
   ngOnInit(): void {
-   this.DirDirection.getAllDirection().subscribe ({
-    next : (data) => {
-      this.direction=data
-    },
-    error : (err) => {
-      this.ErrorMessage=err
-    }
-   });
-
+    this.DirDirection.getAllDirection().subscribe({
+      next: (data) => {
+        this.direction = data;
+        this.applyFilter(); // Call applyFilter to initialize filteredDirection
+      },
+      error: (err) => {
+        this.ErrorMessage = err;
+      }
+    });
   }
+
+
+
+  applyFilter(): void  {
+    this.filteredDirection = this.direction.filter(direction =>
+      (direction.nomdirection.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+      direction.nomdirection.toLowerCase().includes(this.searchTerm.toLowerCase())) &&
+      (this.selectedDirection === '' || direction.nomdirection === this.selectedDirection)
+    );
+  }
+
 
   openAddDirectionDialog() {
     // Ouvrir la boîte de dialogue pour ajouter un nouveau stagiaire
@@ -84,6 +98,8 @@ export class DirectionComponent implements OnInit {
       }
     });
   }
+
+
 
 
 }

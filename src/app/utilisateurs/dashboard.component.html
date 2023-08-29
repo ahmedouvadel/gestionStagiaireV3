@@ -12,6 +12,8 @@
           type="text"
           class="form-control"
           placeholder="taper un mot cle"
+          [(ngModel)]="searchTerm"
+          (input)="filterUsers()"
           aria-label="Recipient's username"
           aria-describedby="basic-addon2"
         />
@@ -48,41 +50,44 @@
   <div class="card">
     <div class="card-header">List de L'utilisateur</div>
 
-    <div class="card-body">
-      <table class="table">
-        <thead class="thead-dark">
-          <tr>
-            <th scope="col">id</th>
-            <th scope="col">Nom de l'utilisateur</th>
-            <th scope="col">Role</th>
-            <th scope="col" >Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr
-          *ngFor="let U of User"
-          >
-            <td>{{U.id}}</td>
-            <td>{{U.username}}</td>
-            <td>{{U.roles}}</td>
+    <!-- ... Previous code ... -->
 
+<div class="card-body">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Nom de l'utilisateur</th>
+        <th scope="col">Role</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of filteredUsers">
+        <td>{{ user.id }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.roles.join(', ') }}</td>
+        <td style="cursor: pointer;" class="btns">
+          <a (click)="openUpdateUserDialog()">
+            <mat-icon aria-hidden="false" aria-label="Modifier">edit</mat-icon>
+          </a>
+          <a (click)="openDeleteUserDialog(user.id)">
+            <mat-icon
+              aria-hidden="false"
+              class="delete"
+              aria-label="Supprimer"
+            >
+              delete
+            </mat-icon>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
-            <!-- Dans votre boucle *ngFor pour afficher la liste des stagiaires -->
-<td style="cursor: pointer;" class="btns">
-  <a (click)="openUpdateUserDialog()" >
-    <mat-icon aria-hidden="false" aria-label="Modifier">edit</mat-icon>
-  </a>
-  <a (click)="openDeleteUserDialog(U.id)">
-    <mat-icon aria-hidden="false" class="delete" aria-label="Supprimer">delete</mat-icon>
-  </a>
-</td>
+<!-- ... Rest of the code ... -->
 
-      <!-- icon Update et Drop -->
-
-          </tr>
-        </tbody>
-      </table>
-    </div>
 
   </div>
 

@@ -5,7 +5,6 @@ import { AddDepartementComponent } from '../add-departement/add-departement.comp
 import { DleteDepartementComponent } from '../dlete-departement/dlete-departement.component';
 import { EditDepartementComponent } from '../edit-departement/edit-departement.component';
 import { AuthentificaionService } from '../services/authentificaion.service';
-import { findIndex } from 'rxjs';
 import { DepartementService } from '../services/departement/departement.service';
 import { DepartementModel } from '../model/departement.model';
 import { DirectionService } from '../services/direction/direction.service';
@@ -44,7 +43,9 @@ export class DepartementComponent implements OnInit {
       }
     });
     this.filterDepartments(); // Initial filter
-   this.DirDirection.getAllDirection().subscribe({
+
+    //Pour Lister Tous les Direction
+    this.DirDirection.getAllDirection().subscribe({
     next : (data)=> {
       this.direction=data
     },
@@ -95,9 +96,9 @@ export class DepartementComponent implements OnInit {
   }
 
 
-
+   // Buttun F
   openUpdateStagiaireDialog() {
-    // Ouvrir la boîte de dialogue pour ajouter un nouveau stagiaire
+    // Ouvrir la boîte de dialogue pour Modifier un Departement
     const dialogRef = this.dialog.open(EditDepartementComponent, {
       data: { action: 'Ajouter' },
     });
@@ -108,7 +109,7 @@ export class DepartementComponent implements OnInit {
       }
     });
   }
-
+   //Pour Lister La Direction Par Nom
   getDirectionName(directionId: number): string {
     const direction: DirectionModel | undefined = this.DirDirection.direction.find(d => d.id === directionId);
     return direction ? direction.nomdirection : 'N/A';
