@@ -10,7 +10,7 @@ export class ServiceService {
    ErrorMessage! : string;
   constructor() {
     this.service = [
-       {id: 1 , nomservice:"Genie Logiciel"},
+      {id: 1 , nomservice:"Genie Logiciel"},
       {id : 2, nomservice:"Reseau informatique"},
       {id : 3, nomservice:"SAP" },
       {id : 4, nomservice:"D610"},

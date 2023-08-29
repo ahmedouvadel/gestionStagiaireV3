@@ -6,6 +6,8 @@ import { EditStagiaireComponent } from '../edit-stagiaire/edit-stagiaire.compone
 import { AuthentificaionService } from '../services/authentificaion.service';
 import { StagiaireService } from '../services/stagiaire/stagiaire.service';
 import { StagiaireModel } from '../model/stagiaire.model';
+import { ServiceService } from '../services/service/service.service';
+import { ServiceModel } from '../model/service.model';
 
 @Component({
   selector: 'app-home',
@@ -16,13 +18,15 @@ export class HomeComponent implements OnInit {
 
   stagiaire: StagiaireModel[] = []; // Votre liste de stagiaires
   ErrorMesssage! : string
+  service!:ServiceModel
   searchTerm: string = '';
   filteredStagiaires: StagiaireModel[] = [];
 
   constructor(
     private dialog: MatDialog,
     public authService: AuthentificaionService,
-    private stagiaireService: StagiaireService
+    private stagiaireService: StagiaireService,
+    private SrvService : ServiceService
   ) {}
 
   ngOnInit(): void {
@@ -105,4 +109,11 @@ export class HomeComponent implements OnInit {
       }
     });
   }
+
+  // Function to get the service name based on serviceId
+  getServiceName(ServiceId: number): string {
+    const service: ServiceModel | undefined = this.SrvService.service.find(s => s.id === ServiceId);
+    return service ? service.nomservice : 'N/A';
+  }
+
 }

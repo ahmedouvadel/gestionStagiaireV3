@@ -23,13 +23,10 @@
       <!-- Sélecteur pour filtrer les départements -->
       <select class="form-select" aria-label="Default select example" [(ngModel)]="selectedService" (change)="filterDepartments()">
         <option value="" disabled selected hidden>Rechercher Les Directions</option>
-        <option value="DTI">DTI</option>
-        <option value="DHCP">DHCP</option>
-        <option value="DAL">DAL</option>
-        <option value="D700">D700</option>
-        <option value="D600">D600</option>
-        <option value="D500">D500</option>
+        <!--ngFor pour Lister les Directions Dans La Cobobox-->
+        <option *ngFor="let direction of direction" [value]="direction.nomdirection">{{ direction.nomdirection }}</option>
       </select>
+
 
       <!-- Bouton pour ajouter un nouveau département -->
       <span *ngIf="authService.hasRole('ADMIN')" class="link-primary" (click)="openDepartementDialog()">
@@ -53,6 +50,7 @@
           <tr>
             <th scope="col">ID</th>
             <th scope="col">Nom du Département</th>
+            <th scope="col">Nom du Direction</th>
             <th *ngIf="authService.hasRole('ADMIN')" scope="col">Action</th>
           </tr>
         </thead>
@@ -60,6 +58,7 @@
           <tr *ngFor="let D of filteredDepartments">
             <td>{{ D.id }}</td>
             <td>{{ D.nomdepartement }}</td>
+            <td>{{ getDirectionName(D.directionId) }}</td>
 
             <td *ngIf="authService.hasRole('ADMIN')" class="btns">
               <a  style="cursor: pointer;"  (click)="openUpdateStagiaireDialog()" >

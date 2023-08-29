@@ -18,14 +18,9 @@
       </div>
 
       <!-- Sélecteur pour filtrer les services -->
-      <select class="form-select" aria-label="Default select example">
-        <option value="" disabled selected hidden>Rechercher Les Service</option>
-        <option value="DTI">DTI</option>
-        <option value="DHCP">DHPC</option>
-        <option value="DAL">DAL</option>
-        <option value="D700">D700</option>
-        <option value="D600">D600</option>
-        <option value="D500">D500</option>
+      <select class="form-select" aria-label="Default select example" >
+        <option value="" disabled selected hidden>Rechercher Les Departement</option>
+        <option *ngFor="let Departement of Departement" [value]="Departement.nomdepartement">{{ Departement.nomdepartement }}</option>
       </select>
 
       <!-- Bouton pour ajouter un nouveau service -->

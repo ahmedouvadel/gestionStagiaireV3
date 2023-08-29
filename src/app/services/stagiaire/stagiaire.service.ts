@@ -9,11 +9,11 @@ export class StagiaireService {
   stagiaire! : Array<StagiaireModel>
   constructor() {
     this.stagiaire =[
-      {id: 1, firstname:"Ahmedou", lastname:"Vadel", cin:"563214", numberphone: "44223507",},
-      {id: 2, firstname:"Ftimetou", lastname:"Meyn", cin:"563214",numberphone: "22566478",  },
-      {id: 3, firstname:"Mohamed", lastname:"Sidine",cin:"563214", numberphone: "44699878",   },
-      {id: 4, firstname:"Abdallahi", lastname:"Mohamedou", cin:"563214", numberphone: "36547856",  },
-      {id: 5, firstname:"Mohamed", lastname:"Mahfoud", cin:"563214",numberphone: "26547895", }
+      {id: 1, firstname:"Ahmedou", lastname:"Vadel", cin:"563214", numberphone: "44223507", ServiceId:1},
+      {id: 2, firstname:"Ftimetou", lastname:"Meyn", cin:"563214",numberphone: "22566478", ServiceId:1 },
+      {id: 3, firstname:"Mohamed", lastname:"Sidine",cin:"563214", numberphone: "44699878", ServiceId:1  },
+      {id: 4, firstname:"Abdallahi", lastname:"Mohamedou", cin:"563214", numberphone: "36547856", ServiceId:1 },
+      {id: 5, firstname:"Mohamed", lastname:"Mahfoud", cin:"563214",numberphone: "26547895", ServiceId:1 }
     ]
    }
 

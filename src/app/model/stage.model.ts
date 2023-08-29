@@ -4,6 +4,6 @@ export interface StageModel {
   id:number
   datedeb: Date;
   datefin: Date;
-  nbadge: String;
+  nbadge: string;
   service: ServiceModel,
 }

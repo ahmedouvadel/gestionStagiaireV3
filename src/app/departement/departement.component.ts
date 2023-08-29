@@ -8,6 +8,8 @@ import { AuthentificaionService } from '../services/authentificaion.service';
 import { findIndex } from 'rxjs';
 import { DepartementService } from '../services/departement/departement.service';
 import { DepartementModel } from '../model/departement.model';
+import { DirectionService } from '../services/direction/direction.service';
+import { DirectionModel } from '../model/direction.model';
 
 @Component({
   selector: 'app-departement',
@@ -15,7 +17,8 @@ import { DepartementModel } from '../model/departement.model';
   styleUrls: ['./departement.component.css']
 })
 export class DepartementComponent implements OnInit {
-  Departement: DepartementModel[]= [];
+  Departement: DepartementModel[]= []
+  direction: DirectionModel[]=[]
   ErrorMessage! : string
   searchTerm: string = '';
   selectedService: string = '';
@@ -25,7 +28,9 @@ export class DepartementComponent implements OnInit {
     private router: Router,
     private dialog: MatDialog,
     public authService: AuthentificaionService,
-    private DeptService : DepartementService
+    private DeptService : DepartementService,
+    private DirDirection : DirectionService,
+
   ) {}
 
   ngOnInit(): void {
@@ -39,6 +44,15 @@ export class DepartementComponent implements OnInit {
       }
     });
     this.filterDepartments(); // Initial filter
+   this.DirDirection.getAllDirection().subscribe({
+    next : (data)=> {
+      this.direction=data
+    },
+    error: (err)=> {
+      this.ErrorMessage=err
+    }
+   }) // Fetch directions from the service
+
   }
 
   filterDepartments(): void {
@@ -94,4 +108,11 @@ export class DepartementComponent implements OnInit {
       }
     });
   }
+
+  getDirectionName(directionId: number): string {
+    const direction: DirectionModel | undefined = this.DirDirection.direction.find(d => d.id === directionId);
+    return direction ? direction.nomdirection : 'N/A';
+  }
+
+
 }

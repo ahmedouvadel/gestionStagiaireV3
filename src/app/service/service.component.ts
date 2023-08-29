@@ -7,6 +7,9 @@ import { EditServiceComponent } from '../edit-service/edit-service.component';
 import { AuthentificaionService } from '../services/authentificaion.service';
 import { ServiceService } from '../services/service/service.service';
 import { ServiceModel } from '../model/service.model';
+import { DepartementComponent } from '../departement/departement.component';
+import { DepartementService } from '../services/departement/departement.service';
+import { DepartementModel } from '../model/departement.model';
 
 @Component({
   selector: 'app-service',
@@ -17,13 +20,15 @@ export class ServiceComponent implements OnInit {
 
   // pour Liste les Services
   service : ServiceModel[]= [];
+  Departement! : DepartementModel[]
   ErrorMessage! : string
 
   constructor(
     private router : Router,
     private dialog: MatDialog,
     public authService: AuthentificaionService,
-    private SrvService: ServiceService
+    private SrvService: ServiceService,
+    private DeptService : DepartementService
   ) {}
   /** event pour ajoute un service */
 
@@ -32,11 +37,21 @@ export class ServiceComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    //poud Lister Les Service
     this.SrvService.getAllService().subscribe({
       next : (data)=> {
         this.service=data;
       },
       error : (err) => {
+        this.ErrorMessage=err
+      }
+    })
+     // Pour Lister Les Departement
+    this.DeptService.getAllDepartement().subscribe({
+      next : (data)=> {
+        this.Departement=data
+      },
+      error : (err)=> {
         this.ErrorMessage=err
       }
     })

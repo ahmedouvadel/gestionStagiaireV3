@@ -15,7 +15,7 @@ import { DirectionModel } from '../model/direction.model';
   styleUrls: ['./direction.component.css']
 })
 export class DirectionComponent implements OnInit {
- Direction: DirectionModel[]=[]
+ direction: DirectionModel[]=[]
  ErrorMessage! : string
   constructor(
     private router : Router,
@@ -31,7 +31,7 @@ export class DirectionComponent implements OnInit {
   ngOnInit(): void {
    this.DirDirection.getAllDirection().subscribe ({
     next : (data) => {
-      this.Direction=data
+      this.direction=data
     },
     error : (err) => {
       this.ErrorMessage=err
@@ -56,15 +56,15 @@ export class DirectionComponent implements OnInit {
    openDeleteConfirmationDialog(D : any) {
     const dialogRef = this.dialog.open(DleteDirectionComponent, {
       width: '300px',
-      data: this.Direction
+      data: this.direction
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result === 'confirm') {
         // Appel à la méthode de suppression du stagiaire
         this.DirDirection.deleteDirection(D.id).subscribe({
           next : (data) => {
-            let index = this.Direction.indexOf(D);
-            this.Direction.splice(index, 1);
+            let index = this.direction.indexOf(D);
+            this.direction.splice(index, 1);
           }
         })
       }

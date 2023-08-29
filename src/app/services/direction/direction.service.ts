@@ -6,11 +6,11 @@ import { DirectionModel } from 'src/app/model/direction.model';
   providedIn: 'root'
 })
 export class DirectionService {
-   Direction! : Array<DirectionModel>
+   direction! : Array<DirectionModel>
 
 
   constructor() {
-    this.Direction =[
+    this.direction =[
       {id: 1, nomdirection:"DTI" },
       {id: 2, nomdirection:"DSI"},
 
@@ -22,12 +22,12 @@ export class DirectionService {
   }
 
   public getAllDirection() : Observable<DirectionModel[]> {
-    return of(this.Direction)
+    return of(this.direction)
   }
 
   //Delete Direction
   public deleteDirection(id : number) : Observable<Boolean> {
-    this.Direction= this.Direction.filter(p=>p.id!=id);
+    this.direction= this.direction.filter(p=>p.id!=id);
     return of(true)
 
    }

@@ -1,4 +1,4 @@
 export interface DirectionModel {
-  id:number
-  nomdirection: String,
+  id:number;
+  nomdirection: string;
 }
