@@ -52,9 +52,24 @@ export class DepartementComponent implements OnInit {
     error: (err)=> {
       this.ErrorMessage=err
     }
-   }) // Fetch directions from the service
+   })
+
+   this.getAllDepartement;
 
   }
+
+  //GettAllDepartement
+  getAllDepartement(){
+    this.DeptService.getAllDepartement().subscribe({
+      next : (data)=> {
+        this.Departement=data
+      },
+      error : (err)=> {
+        this.ErrorMessage=err
+      }
+
+    })
+   }
 
   filterDepartments(): void {
     this.filteredDepartments = this.Departement.filter(department =>
@@ -77,7 +92,7 @@ export class DepartementComponent implements OnInit {
     });
   }
 
-  openDeleteConfirmationDialog(D : any) {
+  openDeleteConfirmationDialog(D : DepartementModel) {
     const dialogRef = this.dialog.open(DleteDepartementComponent, {
       width: '300px',
       data: this.Departement
