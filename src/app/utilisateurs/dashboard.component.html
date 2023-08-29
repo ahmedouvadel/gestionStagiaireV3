@@ -63,12 +63,12 @@
           *ngFor="let U of User"
           >
             <td>{{U.id}}</td>
-            <td>{{U.nom}}</td>
-            <td>{{U.Role}}</td>
-           
-     
+            <td>{{U.username}}</td>
+            <td>{{U.roles}}</td>
+
+
             <!-- Dans votre boucle *ngFor pour afficher la liste des stagiaires -->
-<td class="btns">
+<td style="cursor: pointer;" class="btns">
   <a (click)="openUpdateUserDialog()" >
     <mat-icon aria-hidden="false" aria-label="Modifier">edit</mat-icon>
   </a>
@@ -78,7 +78,7 @@
 </td>
 
       <!-- icon Update et Drop -->
-           
+
           </tr>
         </tbody>
       </table>
@@ -86,5 +86,5 @@
 
   </div>
 
-  
+
 </body>

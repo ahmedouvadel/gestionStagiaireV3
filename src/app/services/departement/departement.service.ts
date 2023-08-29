@@ -12,9 +12,9 @@ export class DepartementService {
   constructor() {
 
     this.Departement = [
-      { id: 1, nomdepartement: 'DTI' , directionId : 1  },
-      { id: 2, nomdepartement: 'DTI', directionId : 2 },
-      { id: 3, nomdepartement: 'DTI', directionId : 3},
+      { id: 1, nomdepartement: 'DSI' , directionId : 1  },
+      { id: 2, nomdepartement: 'RSI', directionId : 2 },
+      { id: 3, nomdepartement: 'SPA', directionId : 3},
       { id: 4, nomdepartement: 'DTI' , directionId : 4 },
     ];
 

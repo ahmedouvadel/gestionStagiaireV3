@@ -4,6 +4,8 @@ import { Route, Router } from '@angular/router';
 import { AddUtilisateurComponent } from '../add-utilisateur/add-utilisateur.component';
 import { EditUserComponent } from '../edit-user/edit-user.component';
 import { DleteUserComponent } from '../dlete-user/dlete-user.component';
+import { User } from '../model/user.model';
+import { AuthentificaionService } from '../services/authentificaion.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,27 +14,36 @@ import { DleteUserComponent } from '../dlete-user/dlete-user.component';
 })
 export class DashboardComponent implements OnInit {
 
- 
-  User! : Array<any>
+
+  User! : Array<User>
+  ErrorMessage!:Error
 
   constructor(
-    private router : Router,private dialog: MatDialog  ){}
+    private router : Router,
+    private dialog: MatDialog,
+    private UserService: AuthentificaionService
+    ){}
     ngOnInit(): void {
 
-      this.User =[
-        {id: 1, nom:"Ahmedou", Role:"Admin", },
-        {id: 2, nom:"Ahmed12", Role:"User", },
-        {id: 3, nom:"Ahmed", Role:"Admin", },
+      //Pour Lister Les Utilisateurs
+      this.UserService.getAllUsers().subscribe({
+        next: (data)=> {
+          this.User=data
+        },
+        error : (err)=> {
+          this.ErrorMessage=err
+        }
+      });
 
-      ]
-  
+
+
     }
   openAddUserDialog() {
     // Ouvrir la boîte de dialogue pour ajouter un nouveau stagiaire
     const dialogRef = this.dialog.open(AddUtilisateurComponent, {
       data: { action: 'Ajouter' },
     });
-  
+
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         // Effectuer l'ajout ici avec le résultat
@@ -45,7 +56,7 @@ export class DashboardComponent implements OnInit {
       data: stagiaireId
     });
 
-   
+
 
 
     dialogRef.afterClosed().subscribe(result => {
@@ -64,7 +75,7 @@ export class DashboardComponent implements OnInit {
     const dialogRef = this.dialog.open(EditUserComponent, {
       data: { action: 'Ajouter' },
     });
-  
+
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         // Effectuer l'ajout ici avec le résultat

@@ -11,18 +11,10 @@ export class AuthentificaionService {
   authenticatedUser!: User;
 
   constructor() {
-    this.users.push({ username: 'user1', password: 'anuser', roles: ['USER'] });
-    this.users.push({ username: 'user2', password: 'anuser', roles: ['USER'] });
-    this.users.push({
-      username: 'Supervisor',
-      password: '09132339Aa',
-      roles: ['Ahmed'],
-    });
-    this.users.push({
-      username: 'Admin',
-      password: '09132339',
-      roles: ['ADMIN'],
-    });
+    this.users.push({id:1, username: 'user1', password: '123Aa', roles: ['USER'] });
+    this.users.push({id:2, username: 'user2', password: '123456789', roles: ['USER'] });
+    this.users.push({id:3, username: 'Supervisor', password: '09132339Aa',roles: ['Supervisor'] });
+    this.users.push({id:4, username: 'Admin', password: '09132339',roles: ['ADMIN'] });
   }
 
   public Login(username: String, password: String): Observable<User> {
@@ -62,4 +54,15 @@ export class AuthentificaionService {
     localStorage.removeItem('authUser');
     return of(true);
   }
+
+  getAllUsers() : Observable<User[]> {
+    return of(this.users);
+  }
+
+  //Delete Service
+  public deleteUsers(id : number) : Observable<Boolean> {
+    this.users= this.users.filter(p=>p.id!=id);
+    return of(true)
+
+   }
 }

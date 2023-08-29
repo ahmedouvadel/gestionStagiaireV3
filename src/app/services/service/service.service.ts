@@ -10,11 +10,11 @@ export class ServiceService {
    ErrorMessage! : string;
   constructor() {
     this.service = [
-      {id: 1 , nomservice:"Genie Logiciel"},
-      {id : 2, nomservice:"Reseau informatique"},
-      {id : 3, nomservice:"SAP" },
-      {id : 4, nomservice:"D610"},
-      {id : 5, nomservice:"D720"},
+      {id: 1 , nomservice:"Genie Logiciel", DepartementId:1},
+      {id : 2, nomservice:"Reseau informatique", DepartementId:2},
+      {id : 3, nomservice:"SAP", DepartementId:3 },
+      {id : 4, nomservice:"D610" ,DepartementId:4},
+      {id : 5, nomservice:"D720", DepartementId:1},
     ]
   }
 

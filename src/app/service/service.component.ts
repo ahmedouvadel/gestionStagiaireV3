@@ -104,5 +104,10 @@ export class ServiceComponent implements OnInit {
       }
     });
   }
+
+  getDepartementName(DepartementId: number): string {
+    const Departement: DepartementModel | undefined = this.DeptService.Departement.find(D => D.id === DepartementId);
+    return Departement ? Departement.nomdepartement : 'N/A';
+  }
 }
 

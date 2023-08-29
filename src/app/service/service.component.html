@@ -58,9 +58,10 @@
           <tr *ngFor="let S of service">
             <th>{{S.id}}</th>
             <td>{{S.nomservice}}</td>
+            <td>{{ getDepartementName(S.DepartementId) }}</td>
 
             <!-- Dans votre boucle *ngFor pour afficher la liste des stagiaires -->
-<td *ngIf="authService.hasRole('ADMIN')" class="btns">
+<td *ngIf="authService.hasRole('ADMIN')" style="cursor: pointer;" class="btns">
   <a (click)="openUpdateStagiaireDialog()" >
     <mat-icon aria-hidden="false" aria-label="Modifier">edit</mat-icon>
   </a>

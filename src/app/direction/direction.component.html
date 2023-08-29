@@ -43,6 +43,8 @@
           <tr>
             <th scope="col">id</th>
             <th scope="col">Nom de la Direction</th>
+            <th scope="col">Action</th>
+
 
           </tr>
         </thead>
@@ -57,15 +59,15 @@
             <td class="btns">
 
                           <!-- Dans votre boucle *ngFor pour afficher la liste des stagiaires -->
-<td *ngIf="authService.hasRole('ADMIN')" class="btns">
-  <a style="cursor: pointer;"  (click)="openUpdateStagiaireDialog()" >
-    <mat-icon  aria-hidden="false" aria-label="Modifier">edit</mat-icon>
-  </a>
-  <a style="cursor: pointer;" (click)="openDeleteConfirmationDialog(D.id)">
-    <mat-icon aria-hidden="false" class="delete" aria-label="Supprimer">delete</mat-icon>
-  </a>
-</td>
-<!--
+                          <td *ngIf="authService.hasRole('ADMIN')" class="btns">
+                            <a style="cursor: pointer;"  (click)="openUpdateStagiaireDialog()" >
+                              <mat-icon  aria-hidden="false" aria-label="Modifier">edit</mat-icon>
+                            </a>
+                            <a style="cursor: pointer;" (click)="openDeleteConfirmationDialog(D.id)">
+                              <mat-icon aria-hidden="false" class="delete" aria-label="Supprimer">delete</mat-icon>
+                            </a>
+                          </td>
+                          <!--
               <a>
                 <mat-icon
                   aria-hidden="false"
