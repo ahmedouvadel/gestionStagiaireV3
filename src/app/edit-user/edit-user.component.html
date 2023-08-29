@@ -1,7 +1,7 @@
 <div class="card">
     <!-- En-tête de la carte -->
     <div class="card-header">Modifier Utulisateur</div>
-  
+
     <div class="card-body">
       <form>
         <!-- Champ pour le nom -->
@@ -15,19 +15,17 @@
             required
           />
         </div>
-  
+
         <!-- Champ pour le Role -->
-        <div class="form-group">
-          <label for="Role">Role</label>
-          <input
-            type="text"
-            class="form-control"
-            id="prenom"
-            placeholder="Role"
-          />
-        </div>
-  
-        
+        <select class="form-select" aria-label="Default select example">
+          <option value="" disabled selected hidden> Ajouter un role</option>
+          <option >Admin</option>
+          <option >Supervisor</option>
+        </select>
+
+        <br>
+
+
         <!-- Boutons pour Enregistrer et Annuler -->
         <div class="d-flex justify-content-between">
           <button
@@ -49,4 +47,3 @@
       </form>
     </div>
   </div>
-  

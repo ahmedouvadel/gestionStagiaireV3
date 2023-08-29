@@ -63,15 +63,15 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of filteredUsers">
-        <td>{{ user.id }}</td>
-        <td>{{ user.username }}</td>
-        <td>{{ user.roles.join(', ') }}</td>
+      <tr *ngFor="let U of filteredUsers">
+        <td>{{ U.id }}</td>
+        <td>{{ U.username }}</td>
+        <td>{{ U.roles.join(', ') }}</td>
         <td style="cursor: pointer;" class="btns">
           <a (click)="openUpdateUserDialog()">
             <mat-icon aria-hidden="false" aria-label="Modifier">edit</mat-icon>
           </a>
-          <a (click)="openDeleteUserDialog(user.id)">
+          <a (click)="openDeleteUserDialog(U)">
             <mat-icon
               aria-hidden="false"
               class="delete"

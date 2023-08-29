@@ -16,6 +16,7 @@ export class DashboardComponent implements OnInit {
 
 
   users: User[] = [];
+  ErrorMesssage!:Error
   searchTerm: string = '';
   filteredUsers: User[] = [];
 
@@ -39,7 +40,24 @@ export class DashboardComponent implements OnInit {
           console.error(error);
         }
       );
+      this.getAllUsers;
+      this.filteredUsers = this.users;
+
+
     }
+
+    getAllUsers() {
+      this.UserService.getAllUsers().subscribe({
+        next : (data) => {
+          this.users=data
+        },
+        error : (err) => {
+          this.ErrorMesssage=err
+        }
+      })
+    }
+
+
 
 
   openAddUserDialog() {
@@ -54,26 +72,26 @@ export class DashboardComponent implements OnInit {
       }
     });
   }
-  openDeleteUserDialog(stagiaireId: number) {
+  openDeleteUserDialog(U: User) {
     const dialogRef = this.dialog.open(DleteUserComponent, {
       width: '300px',
-      data: stagiaireId
+      data: this.users
     });
-
-
-
 
     dialogRef.afterClosed().subscribe(result => {
       if (result === 'confirm') {
         // Appel à la méthode de suppression du stagiaire
-        this.deleteStagiaire(stagiaireId);
-      }
-    });
+        this.UserService.deleteUsers(U.id).subscribe({
+          next : (data) => {
+            let index = this.users.indexOf(U);
+            this.users.splice(index, 1);
+          }
+      })
+    }
+  });
   }
 
-  deleteStagiaire(stagiaireId: number) {
-    // Implémentez ici la logique de suppression du stagiaire
-  }
+
   openUpdateUserDialog() {
     // Ouvrir la boîte de dialogue pour ajouter un nouveau stagiaire
     const dialogRef = this.dialog.open(EditUserComponent, {
