@@ -41,6 +41,8 @@ export class DirectionComponent implements OnInit {
         this.ErrorMessage = err;
       }
     });
+
+    this.filteredDirection = this.direction;
   }
 
 
