@@ -32,8 +32,11 @@
           <th scope="col">id</th>
           <th scope="col">nom</th>
           <th scope="col">prenom</th>
-          <th scope="col">Service</th>
+          <th scope="col">service</th>
           <th scope="col">cin</th>
+          <th scope="col">datedeb</th>
+          <th scope="col">datefin</th>
+          <th scope="col">nbadge</th>
           <th scope="col">N°Telephone</th>
           <th *ngIf="authService.hasRole('ADMIN')" scope="col">Action</th>
         </tr>
@@ -45,6 +48,9 @@
           <td>{{ S.lastname }}</td>
           <td>{{ getServiceName(S.id) }}</td>
           <td>{{ S.cin }}</td>
+          <td>{{ S.datedeb }}</td>
+          <td>{{ S.datefin }}</td>
+          <td>{{ S.nbadge }}</td>
           <td>{{ S.numberphone }}</td>
 
 

@@ -28,7 +28,6 @@ import { EditStagiaireComponent } from './edit-stagiaire/edit-stagiaire.componen
 import { EditDepartementComponent } from './edit-departement/edit-departement.component';
 import { AdminTemplateComponent } from './admin-template/admin-template.component';
 import { DirectionComponent } from './direction/direction.component';
-import { BreadcrumbModule } from 'angular-crumbs';
 import { ServiceComponent } from './service/service.component';
 import { AddServiceComponent } from './add-service/add-service.component';
 import { AddDirectionComponent } from './add-direction/add-direction.component';
@@ -49,6 +48,7 @@ import { EditDirectionComponent } from './edit-direction/edit-direction.componen
 import { DleteDirectionComponent } from './dlete-direction/dlete-direction.component';
 import { AuthenticationGuard } from './guards/authentication.guard';
 import { AuthentificaionService } from './services/authentificaion.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -105,7 +105,8 @@ import { AuthentificaionService } from './services/authentificaion.service';
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
-    
+    HttpClientModule,
+
 
     //BreadcrumbModule,
     MatDialogModule,

@@ -1,4 +1,4 @@
-import { ServiceModel } from "./service.model";
+/**import { ServiceModel } from "./service.model";
 
 export interface StageModel {
   id:number
@@ -6,4 +6,4 @@ export interface StageModel {
   datefin: Date;
   nbadge: string;
   service: ServiceModel,
-}
+} */

@@ -14,13 +14,14 @@ export class AddStagiaireComponent implements OnInit {
   }
   ngOnInit(): void {
     this.form = this.fb.group({
-      nom: ['', Validators.required],
-      prenom: [''],
+      firstname: ['', Validators.required],
+      lastname: [''],
+      service: [''],
+      cin: [''],
       dateDebut: [''],
       dateFin: [''],
-      service: [''],
-      numeroBadge: [''],
-      numeroTelephone: ['']
+      nbadge: [''],
+      numberphone: ['']
     });
   }
 
@@ -30,7 +31,7 @@ export class AddStagiaireComponent implements OnInit {
       console.log(this.form.value);
     }
   }
-  //fct fermer formulaire 
+  //fct fermer formulaire
   cancelForm() {
     this.dialogRef.close(); // Fermer le dialogue
   }
