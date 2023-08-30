@@ -3,7 +3,7 @@
   <div class="card-header">Add Direction</div>
 
   <div class="card-body">
-    <form>
+    <form [formGroup]="DirectionFormGroup" (ngSubmit)="AddDirection" >
 
       <!-- Champ pour le nom de la direction -->
       <div class="form-group">
@@ -12,9 +12,13 @@
         <input
           type="text"
           class="form-control"
+          formControlName="nomdirection"
           placeholder="Nom  direction "
-          name="Direction"
+          name="nomdirection"
         />
+        <small *ngIf="DirectionFormGroup.controls['nomdirection'].errors && DirectionFormGroup.controls['nomdirection'].touched" class="text-danger"
+         >
+           {{getErrorMessage('nomdirection',DirectionFormGroup.controls['nomdirection'].errors)}}</small>
       </div>
       <br>
 
@@ -23,8 +27,9 @@
         type="button"
         class="btn btn-light"
         style="background-color: rgba(146, 195, 238, 0.597);  border-radius: 0.5rem;"
+        [disabled]="DirectionFormGroup.invalid"
       >
-        Enregistrer
+        Save
       </button>
       <button
       type="button"

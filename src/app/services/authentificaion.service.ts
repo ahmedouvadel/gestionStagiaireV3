@@ -11,7 +11,7 @@ export class AuthentificaionService {
   authenticatedUser!: User;
 
   constructor() {
-    this.users.push({ id: 1, username: 'user2' , password : '123Aa', roles: ['USER'] });
+    this.users.push({ id: 1, username: 'user1' , password : '123Aa', roles: ['USER'] });
     this.users.push({ id: 2, username: 'user2', password : '123456789', roles: ['USER']});
     this.users.push({ id: 3, username: 'Supervisor', password : '09132339Aa', roles: ['Supervisor']});
     this.users.push({ id: 4, username: 'Admin' , password : '09132339', roles: ['ADMIN']});

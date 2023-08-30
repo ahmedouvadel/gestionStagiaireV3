@@ -1,3 +1,4 @@
+import { Direction } from '@angular/cdk/bidi';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { DirectionModel } from 'src/app/model/direction.model';
@@ -30,5 +31,10 @@ export class DirectionService {
     this.direction= this.direction.filter(p=>p.id!=id);
     return of(true)
 
+   }
+
+   AddDirection(Direction : DirectionModel): Observable<DirectionModel> {
+    this.direction.push(Direction);
+    return of(Direction)
    }
 }

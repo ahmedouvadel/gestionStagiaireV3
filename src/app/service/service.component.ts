@@ -7,7 +7,6 @@ import { EditServiceComponent } from '../edit-service/edit-service.component';
 import { AuthentificaionService } from '../services/authentificaion.service';
 import { ServiceService } from '../services/service/service.service';
 import { ServiceModel } from '../model/service.model';
-import { DepartementComponent } from '../departement/departement.component';
 import { DepartementService } from '../services/departement/departement.service';
 import { DepartementModel } from '../model/departement.model';
 
@@ -22,6 +21,8 @@ export class ServiceComponent implements OnInit {
   service : ServiceModel[]= [];
   Departement! : DepartementModel[]
   ErrorMessage! : string
+  searchTerm: string = '';
+  filteredService: ServiceModel[]=[]
 
   constructor(
     private router : Router,
@@ -38,7 +39,7 @@ export class ServiceComponent implements OnInit {
 
   ngOnInit(): void {
     //poud Lister Les Service
-    this.SrvService.getAllService().subscribe({
+     this.SrvService.getAllService().subscribe({
       next : (data)=> {
         this.service=data;
       },
@@ -46,17 +47,43 @@ export class ServiceComponent implements OnInit {
         this.ErrorMessage=err
       }
     })
+
+    this.filterService();
      // Pour Lister Les Departement
-    this.DeptService.getAllDepartement().subscribe({
+    this.SrvService.getAllService().subscribe({
       next : (data)=> {
-        this.Departement=data
+        this.service=data
       },
       error : (err)=> {
         this.ErrorMessage=err
       }
     })
 
+    this.getAllService;
+
+    this.filteredService = this.service;
+
   }
+
+  getAllService() {
+    this.SrvService.getAllService().subscribe({
+      next : (data) => {
+        this.service=data
+      },
+      error : (err) => {
+        this.ErrorMessage=err
+      }
+    })
+  }
+
+  // Pour filtre les Stagiaire
+  filterService(): void {
+    this.filteredService = this.service.filter(service =>
+      service.nomservice.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+      service.nomservice.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
+  }
+
   openAddSeviceDialog() {
     // Ouvrir la boîte de dialogue pour ajouter un nouveau stagiaire
     const dialogRef = this.dialog.open(AddServiceComponent, {

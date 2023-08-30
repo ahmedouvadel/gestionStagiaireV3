@@ -12,6 +12,8 @@
           type="text"
           class="form-control"
           placeholder="taper un mot cle"
+          [(ngModel)]="searchTerm"
+          (input)="filterService()"
           aria-label="Recipient's username"
           aria-describedby="basic-addon2"
         />
@@ -55,7 +57,7 @@
         </thead>
         <tbody>
           <!-- Ligne pour chaque service (utilisation de *ngFor) -->
-          <tr *ngFor="let S of service">
+          <tr *ngFor="let S of filteredService ">
             <th>{{S.id}}</th>
             <td>{{S.nomservice}}</td>
             <td>{{ getDepartementName(S.DepartementId) }}</td>
