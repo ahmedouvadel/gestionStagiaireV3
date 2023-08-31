@@ -8,11 +8,13 @@ import { StagiaireService } from '../services/stagiaire/stagiaire.service';
 import { StagiaireModel } from '../model/stagiaire.model';
 import { ServiceService } from '../services/service/service.service';
 import { ServiceModel } from '../model/service.model';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  providers: [DatePipe] // Add this line
 })
 export class HomeComponent implements OnInit {
 
@@ -31,13 +33,20 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.stagiaireService.getAllStagiaire().subscribe({
-      next : (data) => {
-        this.stagiaire=data
+      next: (data) => {
+        this.stagiaire = data.map(stagiaire => ({
+          ...stagiaire,
+          datedeb: new Date(stagiaire.datedeb), // Convert to Date object
+          datefin: new Date(stagiaire.datefin)  // Convert to Date object
+        }));
+        console.log('Stagiaire data:', this.stagiaire);
+        this.filteredStagiaires = this.stagiaire; // Update filteredStagiaires
       },
-      error : (err) => {
-        this.ErrorMesssage=err
+      error: (err) => {
+        this.ErrorMesssage = err;
       }
-    })
+    });
+
 
     this.getAllStagiaire;
 
@@ -65,17 +74,23 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  openAddStagiaireDialog() {
-    const dialogRef = this.dialog.open(AddStagiaireComponent, {
-      data: { action: 'Ajouter' },
-    });
+  // ...
 
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        // Effectuer l'ajout ici avec le résultat
-      }
-    });
-  }
+openAddStagiaireDialog() {
+  const dialogRef = this.dialog.open(AddStagiaireComponent, {
+    data: { action: 'Ajouter' },
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+    if (result) {
+      // Add the new stagiaire to the list
+      this.stagiaire.push(result);
+    }
+  });
+}
+
+// ...
+
 
   openDeleteConfirmationDialog(S: StagiaireModel) {
     const dialogRef = this.dialog.open(DleteStagiaireComponent, {

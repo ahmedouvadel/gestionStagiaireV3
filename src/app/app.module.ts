@@ -49,6 +49,7 @@ import { DleteDirectionComponent } from './dlete-direction/dlete-direction.compo
 import { AuthenticationGuard } from './guards/authentication.guard';
 import { AuthentificaionService } from './services/authentificaion.service';
 import { HttpClientModule } from '@angular/common/http';
+import { DatePipe } from '@angular/common';
 
 
 @NgModule({
@@ -113,7 +114,9 @@ import { HttpClientModule } from '@angular/common/http';
 
 
   ],
-  providers: [],
+  providers: [
+    DatePipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

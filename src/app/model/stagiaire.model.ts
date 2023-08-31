@@ -5,8 +5,8 @@ export interface StagiaireModel {
   firstname: string;
   lastname: string;
   cin: string;
-  datedeb:string;
-  datefin:string;
+  datedeb:Date;
+  datefin:Date;
   nbadge:number
   numberphone: string;
   ServiceId : number;

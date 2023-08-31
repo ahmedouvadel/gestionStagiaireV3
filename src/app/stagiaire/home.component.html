@@ -48,8 +48,8 @@
           <td>{{ S.lastname }}</td>
           <td>{{ getServiceName(S.id) }}</td>
           <td>{{ S.cin }}</td>
-          <td>{{ S.datedeb }}</td>
-          <td>{{ S.datefin }}</td>
+          <td>{{ S.datedeb | date:'yyyy-MM-dd' }}</td>
+          <td>{{ S.datefin | date:'yyyy-MM-dd' }}</td>
           <td>{{ S.nbadge }}</td>
           <td>{{ S.numberphone }}</td>
 
