@@ -5,14 +5,14 @@
       <!-- Onglet "Détails" -->
       <a class="nav-link" [ngClass]="{ 'active': currentTab === 'details' }" (click)="changeTab('details')" routerLink="/details">Détails</a>
     </li>
-    <li class="nav-item">
-      <!-- Onglet "Raison" -->
-      <a class="nav-link" [ngClass]="{ 'active': currentTab === 'reason' }" (click)="changeTab('reason')">Plus</a>
+  <!--  <li class="nav-item">
+       Onglet "Raison"
+      <a style="cursor: pointer;" class="nav-link" [ngClass]="{ 'active': currentTab === 'reason' }" (click)="changeTab('reason')">Plus</a>
     </li>
     <li class="nav-item">
-      <!-- Onglet "Actions" -->
-      <a class="nav-link" [ngClass]="{ 'active': currentTab === 'actions' }" (click)="changeTab('actions')">Actions</a>
-    </li>
+       Onglet "Actions"
+      <a style="cursor: pointer;" class="nav-link" [ngClass]="{ 'active': currentTab === 'actions' }" (click)="changeTab('actions')">Actions</a>
+    </li> -->
   </ul>
 
   <div class="tab-content">
@@ -32,8 +32,8 @@
           <tbody>
             <!-- Stages existants -->
             <tr class="completed">
-              <th>Ahmed Vadel</th>
-              <td>Janvier 2022 - Mars 2022</td>
+              <th>fatma</th>
+              <td>Janvier 2023 - Mars 2023</td>
               <td><i class="fas fa-check"></i> Terminé</td>
               <td class="btns" >
                 <a (click)="EnvoyerMaileDialog()">
@@ -60,7 +60,7 @@
             <br>
             <tr class="ongoing">
               <th>Ahmadou</th>
-              <td>Avril 2022 - Juin 2022</td>
+              <td>Avril 2023 - Juin 2023</td>
               <td><i class="fas fa-spinner"></i> En cours</td>
 
               <td class="btns" >

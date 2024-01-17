@@ -20,7 +20,12 @@ export class AddDirectionComponent implements OnInit {
     public dialogRef: MatDialogRef<AddDirectionComponent>,
     private fb : FormBuilder,
     private router : Router,
-    private SrvDirection: DirectionService) {}
+    private SrvDirection: DirectionService) {
+      this.DirectionFormGroup = this.fb.group({
+        nomdirection : ['']
+
+      })
+    }
   //fct fermer formulaire
   cancelForm() {
     this.dialogRef.close(); // Fermer le dialogue
@@ -31,11 +36,30 @@ export class AddDirectionComponent implements OnInit {
       })
   }
 
-  AddDirection() {
+/*  addDirection() {
+    if (this.DirectionFormGroup.valid) {
+      const newDirection: DirectionModel = {
+        nomdirection: this.DirectionFormGroup.value.nomdirection,
+        id: 0
+      };
+
+      this.SrvDirection.addDirection(newDirection).subscribe(
+        (addedDirection) => {
+          alert("Direction Added Successfully");
+          this.dialogRef.close();
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    }
+  } */
+
+   AddDirection() {
     const newDirection = this.DirectionFormGroup.value;
 
     // Call the service to add direction
-    this.SrvDirection.AddDirection(newDirection).subscribe({
+    this.SrvDirection.addDirection(newDirection).subscribe({
       next: (addedDirection) => {
         alert("Direction Added Successfully");
         this.DirectionFormGroup.reset();
@@ -50,7 +74,7 @@ export class AddDirectionComponent implements OnInit {
         console.log(err);
       }
     });
-  }
+  } 
 
 
   getErrorMessage(fieldnomdirection:string, error: ValidationErrors) {

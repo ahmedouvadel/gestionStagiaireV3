@@ -1,7 +1,7 @@
 <!-- Utilisation de l'élément MatDrawerContainer pour contenir la barre latérale et le contenu principal -->
 <mat-drawer-container>
   <!-- Barre latérale (sidebar) avec possibilité de spécifier si elle est ouverte ou fermée -->
-  <mat-drawer mode="side" [opened]="sideBarOpen">
+  <mat-drawer style="background-color: rgb(255, 255, 255);" mode="side" [opened]="sideBarOpen">
     <!-- Inclusion du composant 'app-sidenav' dans la barre latérale, uniquement si ce n'est pas la page de connexion -->
     <app-sidenav *ngIf="!isLoginPage"></app-sidenav>
   </mat-drawer>
@@ -9,7 +9,7 @@
   <!-- Contenu principal de la page -->
   <mat-drawer-content>
     <!-- En-tête (header) de l'application, inclus seulement si ce n'est pas la page de connexion -->
-    <app-header *ngIf="!isLoginPage" (toggleSidebarForMe)="sideBarToggler()"></app-header>
+    <app-header style="background-color:  rgba(17, 39, 182, 0.612);" *ngIf="!isLoginPage" (toggleSidebarForMe)="sideBarToggler()"></app-header>
 
     <!-- Emplacement où les composants liés aux routes seront insérés (le contenu change en fonction de la navigation) -->
     <router-outlet></router-outlet>

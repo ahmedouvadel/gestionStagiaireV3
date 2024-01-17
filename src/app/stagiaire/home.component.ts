@@ -30,7 +30,6 @@ export class HomeComponent implements OnInit {
     private stagiaireService: StagiaireService,
     private SrvService : ServiceService
   ) {}
-
   ngOnInit(): void {
     this.stagiaireService.getAllStagiaire().subscribe({
       next: (data) => {
